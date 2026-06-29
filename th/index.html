@@ -1,107 +1,638 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Business Opportunity by Coach Paul</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Everest Digital Opportunity</title>
+
   <style>
+    :root {
+      --navy: #061b2e;
+      --deep-navy: #03111f;
+      --emerald: #12b886;
+      --emerald-dark: #087f5b;
+      --gold: #d4af37;
+      --gold-soft: #f4df9c;
+      --white: #ffffff;
+      --soft-bg: #f4f8f6;
+      --text: #102a43;
+      --muted: #6b7c8f;
+      --shadow: 0 25px 70px rgba(0, 0, 0, 0.16);
+      --radius: 26px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f5f8f7;
-      color: #102a43;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(18, 184, 134, 0.16), transparent 32%),
+        radial-gradient(circle at top right, rgba(212, 175, 55, 0.18), transparent 28%),
+        linear-gradient(180deg, #f8fbfa 0%, #eef6f3 100%);
+      color: var(--text);
     }
-    .hero {
-      padding: 40px 20px;
-      text-align: center;
-      background: linear-gradient(135deg, #06283d, #136f63);
-      color: white;
-    }
-    .hero h1 {
-      font-size: 34px;
-      margin-bottom: 12px;
-    }
-    .hero p {
-      font-size: 18px;
-      line-height: 1.6;
-    }
-    .box {
-      max-width: 760px;
-      margin: 20px auto;
-      background: white;
-      padding: 24px;
-      border-radius: 18px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-    }
-    .btn {
-      display: block;
-      margin: 12px 0;
-      padding: 14px;
-      border-radius: 12px;
-      text-align: center;
+
+    a {
       text-decoration: none;
-      font-weight: bold;
     }
-    .green {
-      background: #12b886;
-      color: white;
+
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 46px 18px;
+      color: var(--white);
+      background:
+        linear-gradient(135deg, rgba(3, 17, 31, 0.94), rgba(6, 61, 72, 0.88)),
+        url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1800&q=80");
+      background-size: cover;
+      background-position: center;
     }
-    .gold {
-      background: #d4af37;
-      color: #102a43;
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.10), rgba(0, 0, 0, 0.42)),
+        radial-gradient(circle at 50% 20%, rgba(212, 175, 55, 0.20), transparent 34%);
+      pointer-events: none;
     }
-    .outline {
-      border: 2px solid #12b886;
-      color: #12b886;
+
+    .hero-inner {
+      position: relative;
+      width: 100%;
+      max-width: 1160px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 34px;
+      align-items: center;
+      z-index: 1;
     }
-    .small {
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border: 1px solid rgba(244, 223, 156, 0.55);
+      border-radius: 999px;
+      color: var(--gold-soft);
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(14px);
       font-size: 14px;
-      color: #607d8b;
-      line-height: 1.5;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(40px, 7vw, 78px);
+      line-height: 1.05;
+      letter-spacing: -1.5px;
+    }
+
+    .hero h1 span {
+      color: var(--gold-soft);
+    }
+
+    .subtitle {
+      max-width: 700px;
+      margin: 24px 0 0;
+      font-size: clamp(18px, 2.1vw, 24px);
+      line-height: 1.65;
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 54px;
+      padding: 15px 22px;
+      border-radius: 16px;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+      transition: all 0.25s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold-soft), var(--gold));
+      color: var(--deep-navy);
+    }
+
+    .btn-green {
+      background: linear-gradient(135deg, #1dd1a1, var(--emerald-dark));
+      color: var(--white);
+    }
+
+    .btn-outline {
+      color: var(--white);
+      border: 1.5px solid rgba(255, 255, 255, 0.55);
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(14px);
+    }
+
+    .sponsor-card {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+      padding: 28px;
+    }
+
+    .sponsor-card .label {
+      color: var(--gold-soft);
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 8px;
+    }
+
+    .sponsor-card h2 {
+      margin: 0 0 20px;
+      font-size: 30px;
+      color: var(--white);
+      line-height: 1.25;
+    }
+
+    .sponsor-info {
+      display: grid;
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+
+    .info-row {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.10);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .info-row small {
+      display: block;
+      color: rgba(255, 255, 255, 0.62);
+      font-size: 12px;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .info-row strong {
+      color: var(--white);
+      font-size: 18px;
+    }
+
+    .sponsor-card .btn {
+      width: 100%;
+      margin-top: 12px;
+    }
+
+    .section {
+      padding: 78px 18px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 42px;
+    }
+
+    .eyebrow {
+      color: var(--emerald-dark);
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.18;
+      letter-spacing: -1px;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.75;
+      margin-top: 18px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .feature-card {
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba(6, 27, 46, 0.08);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 18px 45px rgba(6, 27, 46, 0.08);
+      transition: 0.25s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(18, 184, 134, 0.15), rgba(212, 175, 55, 0.18));
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+
+    .feature-card h3 {
+      margin: 0 0 10px;
+      color: var(--navy);
+      font-size: 20px;
+    }
+
+    .feature-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    .opportunity {
+      background:
+        linear-gradient(135deg, rgba(6, 27, 46, 0.98), rgba(7, 78, 69, 0.96)),
+        radial-gradient(circle at top right, rgba(212, 175, 55, 0.24), transparent 34%);
+      color: var(--white);
+    }
+
+    .opportunity .section-title h2,
+    .opportunity .section-title p {
+      color: var(--white);
+    }
+
+    .opportunity .section-title p {
+      opacity: 0.82;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .step {
+      padding: 26px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.09);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      backdrop-filter: blur(12px);
+    }
+
+    .step-number {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold-soft), var(--gold));
+      color: var(--deep-navy);
+      font-weight: 900;
+      margin-bottom: 16px;
+    }
+
+    .step h3 {
+      margin: 0 0 10px;
+      font-size: 21px;
+    }
+
+    .step p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.78);
+      line-height: 1.7;
+    }
+
+    .final-cta {
+      padding: 78px 18px;
+      background: var(--soft-bg);
+    }
+
+    .cta-box {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 44px;
+      border-radius: 32px;
+      color: var(--white);
+      text-align: center;
+      background:
+        linear-gradient(135deg, rgba(3, 17, 31, 0.96), rgba(8, 127, 91, 0.92)),
+        radial-gradient(circle at top center, rgba(212, 175, 55, 0.24), transparent 36%);
+      box-shadow: var(--shadow);
+    }
+
+    .cta-box h2 {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 48px);
+      letter-spacing: -1px;
+    }
+
+    .cta-box p {
+      max-width: 720px;
+      margin: 18px auto 28px;
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 18px;
+      line-height: 1.75;
+    }
+
+    .notice {
+      max-width: 980px;
+      margin: 26px auto 0;
+      padding: 22px;
+      border-radius: 22px;
+      background: #ffffff;
+      border: 1px solid rgba(6, 27, 46, 0.08);
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+      box-shadow: 0 14px 38px rgba(6, 27, 46, 0.06);
+    }
+
+    footer {
+      padding: 30px 18px;
+      text-align: center;
+      background: var(--deep-navy);
+      color: rgba(255, 255, 255, 0.68);
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .steps {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .hero {
+        padding: 36px 16px;
+      }
+
+      .hero-actions {
+        display: grid;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .sponsor-card,
+      .cta-box {
+        padding: 24px;
+      }
+
+      .section {
+        padding: 58px 16px;
+      }
     }
   </style>
 </head>
+
 <body>
 
-  <section class="hero">
-    <h1>AI Business Opportunity</h1>
-    <p>เรียนรู้ AI • สร้างตัวตน • ต่อยอดโอกาสธุรกิจดิจิทัล</p>
-    <p>โดยทีมงาน Everest</p>
-  </section>
+  <main>
 
-  <section class="box">
-    <h2>ยินดีต้อนรับครับ</h2>
-    <p>
-      เว็บไซต์นี้เหมาะสำหรับผู้ที่ต้องการเรียนรู้การใช้ AI การตลาดออนไลน์ 
-      การสร้างตัวตน และการต่อยอดโอกาสทางธุรกิจดิจิทัล
-    </p>
+    <section class="hero">
+      <div class="hero-inner">
 
-    <h3>สิ่งที่คุณจะได้เรียนรู้</h3>
-    <ul>
-      <li>การใช้ AI เพื่อสร้างคอนเทนต์</li>
-      <li>การตลาดออนไลน์สำหรับมือใหม่</li>
-      <li>การสร้างตัวตนบนโลกออนไลน์</li>
-      <li>แนวทางต่อยอดโอกาสธุรกิจดิจิทัล</li>
-    </ul>
-  </section>
+        <div>
+          <div class="badge">🏔️ Project Everest Digital Platform</div>
 
-  <section class="box">
-    <h2>ข้อมูลผู้แนะนำ</h2>
-    <p><strong>ชื่อ:</strong> <span id="sponsorName">กำลังโหลด...</span></p>
-    <p><strong>เบอร์โทร:</strong> <span id="sponsorPhone">กำลังโหลด...</span></p>
+          <h1>
+            โอกาสธุรกิจดิจิทัล <br />
+            <span>สำหรับยุค AI</span>
+          </h1>
 
-    <a id="lineBtn" class="btn green" href="#">แอด LINE ผู้แนะนำ</a>
-    <a id="registerBtn" class="btn gold" href="#">ลงทะเบียน / รับข้อมูลเพิ่มเติม</a>
-    <a id="englishBtn" class="btn outline" href="#">English Version</a>
-  </section>
+          <p class="subtitle">
+            เรียนรู้การใช้ AI สร้างตัวตน ทำการตลาดออนไลน์ และต่อยอดโอกาสทางธุรกิจดิจิทัล
+            ผ่านแพลตฟอร์ม Project Everest ที่ออกแบบมาเพื่อคนยุคใหม่
+          </p>
 
-  <section class="box">
-    <h2>ข้อสำคัญ</h2>
-    <p class="small">
-      ผลลัพธ์ขึ้นอยู่กับการเรียนรู้ การลงมือทำ ความสม่ำเสมอ 
-      และทักษะของแต่ละบุคคล เว็บไซต์นี้ไม่ใช่การรับประกันรายได้
-    </p>
-  </section>
+          <div class="hero-actions">
+            <a id="heroRegisterBtn" class="btn btn-gold" href="#">
+              ลงทะเบียน / รับข้อมูลเพิ่มเติม
+            </a>
+            <a id="heroLineBtn" class="btn btn-outline" href="#">
+              ติดต่อผู้แนะนำ
+            </a>
+          </div>
+        </div>
+
+        <aside class="sponsor-card">
+          <div class="label">Your Sponsor</div>
+          <h2>ผู้แนะนำของคุณ</h2>
+
+          <div class="sponsor-info">
+            <div class="info-row">
+              <small>Name</small>
+              <strong id="sponsorName">กำลังโหลด...</strong>
+            </div>
+
+            <div class="info-row">
+              <small>Phone</small>
+              <strong id="sponsorPhone">กำลังโหลด...</strong>
+            </div>
+          </div>
+
+          <a id="lineBtn" class="btn btn-green" href="#" target="_blank" rel="noopener">
+            ติดต่อผู้แนะนำทาง LINE
+          </a>
+
+          <a id="registerBtn" class="btn btn-gold" href="#" target="_blank" rel="noopener">
+            ลงทะเบียน / รับข้อมูลเพิ่มเติม
+          </a>
+
+          <a id="englishBtn" class="btn btn-outline" href="#">
+            English
+          </a>
+        </aside>
+
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-title">
+          <div class="eyebrow">Premium Digital Learning</div>
+          <h2>เรียนรู้ทักษะดิจิทัลที่ใช้ได้จริงในยุคใหม่</h2>
+          <p>
+            Project Everest คือแพลตฟอร์มที่รวมคอร์สเรียนออนไลน์ คอนเทนต์ดิจิทัล
+            และแนวคิดการต่อยอดโอกาสทางธุรกิจไว้ในระบบเดียว
+          </p>
+        </div>
+
+        <div class="grid">
+          <div class="feature-card">
+            <div class="icon">🤖</div>
+            <h3>ทักษะ AI</h3>
+            <p>
+              เรียนรู้การใช้ AI เพื่อช่วยสร้างคอนเทนต์ เพิ่มประสิทธิภาพการทำงาน
+              และต่อยอดการตลาดออนไลน์
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="icon">📈</div>
+            <h3>การตลาดออนไลน์</h3>
+            <p>
+              เข้าใจการสร้างแบรนด์ การสื่อสารกับลูกค้า การทำคอนเทนต์
+              และการเข้าถึงกลุ่มเป้าหมาย
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="icon">🎬</div>
+            <h3>สร้างตัวตนออนไลน์</h3>
+            <p>
+              พัฒนาการทำคอนเทนต์บน TikTok, Facebook, วิดีโอสั้น
+              และโซเชียลมีเดียอย่างมืออาชีพ
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="icon">🌍</div>
+            <h3>โอกาสธุรกิจดิจิทัล</h3>
+            <p>
+              เรียนรู้แนวคิดธุรกิจยุคใหม่ การพัฒนาทักษะ และการแนะนำต่อ
+              ตามเงื่อนไขของบริษัท
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section opportunity">
+      <div class="container">
+        <div class="section-title">
+          <div class="eyebrow">How It Works</div>
+          <h2>เริ่มต้นง่าย เป็นขั้นตอน</h2>
+          <p>
+            เริ่มจากการเรียนรู้ ลงมือทำอย่างต่อเนื่อง และรับคำแนะนำจากผู้แนะนำของคุณ
+            เพื่อเข้าใจระบบและโอกาสได้ชัดเจนขึ้น
+          </p>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <h3>เลือกแพ็กเกจเรียนรู้</h3>
+            <p>
+              เลือกแพ็กเกจหรือคอร์สที่เหมาะกับเป้าหมายของคุณ
+              แล้วเริ่มเรียนรู้ผ่านระบบออนไลน์
+            </p>
+          </div>
+
+          <div class="step">
+            <div class="step-number">2</div>
+            <h3>เรียนรู้และนำไปใช้</h3>
+            <p>
+              ศึกษา AI, Marketing, Personal Branding และทักษะดิจิทัล
+              พร้อมนำไปประยุกต์ใช้จริง
+            </p>
+          </div>
+
+          <div class="step">
+            <div class="step-number">3</div>
+            <h3>รับคำแนะนำจากสปอนเซอร์</h3>
+            <p>
+              ติดต่อผู้แนะนำของคุณ เพื่อรับข้อมูลเพิ่มเติม ขั้นตอนการสมัคร
+              และแนวทางเริ่มต้นอย่างถูกต้อง
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="cta-box">
+        <h2>พร้อมเริ่มต้นเส้นทางดิจิทัลของคุณหรือยัง?</h2>
+        <p>
+          ก้าวแรกคือการเรียนรู้ พัฒนาทักษะ สร้างตัวตน และเปิดมุมมองใหม่
+          ของโอกาสทางธุรกิจในยุค AI
+        </p>
+
+        <div class="hero-actions" style="justify-content: center;">
+          <a id="bottomRegisterBtn" class="btn btn-gold" href="#" target="_blank" rel="noopener">
+            ลงทะเบียน / รับข้อมูลเพิ่มเติม
+          </a>
+          <a id="bottomLineBtn" class="btn btn-green" href="#" target="_blank" rel="noopener">
+            ติดต่อผู้แนะนำทาง LINE
+          </a>
+        </div>
+      </div>
+
+      <div class="notice">
+        <strong>หมายเหตุสำคัญ:</strong>
+        ผลลัพธ์ของแต่ละบุคคลขึ้นอยู่กับการเรียนรู้ การลงมือทำ ความสม่ำเสมอ
+        ทักษะส่วนบุคคล สภาพตลาด และความพยายามของแต่ละคน เว็บไซต์นี้ไม่ได้การันตีรายได้
+        ผลกำไร หรือผลลัพธ์ทางการเงิน กรุณาศึกษารายละเอียดให้ครบถ้วนก่อนตัดสินใจ
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    © Project Everest Digital Opportunity. All rights reserved.
+  </footer>
 
   <script>
     const params = new URLSearchParams(window.location.search);
@@ -112,11 +643,29 @@
       .then(data => {
         const member = data[ref] || data["coachpaul"];
 
-        document.getElementById("sponsorName").textContent = member.name_th;
-        document.getElementById("sponsorPhone").textContent = member.phone;
-        document.getElementById("lineBtn").href = member.line_url;
-        document.getElementById("registerBtn").href = member.register_link;
-        document.getElementById("englishBtn").href = "../en/?ref=" + ref;
+        const sponsorName = member.name_th || member.name_en || member.name || "ผู้แนะนำของคุณ";
+        const sponsorPhone = member.phone || "-";
+        const lineUrl = member.line_url || "#";
+        const registerLink = member.register_link || "#";
+
+        document.getElementById("sponsorName").textContent = sponsorName;
+        document.getElementById("sponsorPhone").textContent = sponsorPhone;
+
+        document.getElementById("lineBtn").href = lineUrl;
+        document.getElementById("heroLineBtn").href = lineUrl;
+        document.getElementById("bottomLineBtn").href = lineUrl;
+
+        document.getElementById("registerBtn").href = registerLink;
+        document.getElementById("heroRegisterBtn").href = registerLink;
+        document.getElementById("bottomRegisterBtn").href = registerLink;
+
+        document.getElementById("englishBtn").href = "../en/?ref=" + encodeURIComponent(ref);
+      })
+      .catch(error => {
+        console.error("Unable to load sponsor data:", error);
+
+        document.getElementById("sponsorName").textContent = "ไม่พบข้อมูลผู้แนะนำ";
+        document.getElementById("sponsorPhone").textContent = "-";
       });
   </script>
 
