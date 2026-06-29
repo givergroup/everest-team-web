@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Business Opportunity by Coach Paul</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f8f7;
+      color: #102a43;
+    }
+    .hero {
+      padding: 40px 20px;
+      text-align: center;
+      background: linear-gradient(135deg, #06283d, #136f63);
+      color: white;
+    }
+    .hero h1 {
+      font-size: 34px;
+      margin-bottom: 12px;
+    }
+    .hero p {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+    .box {
+      max-width: 760px;
+      margin: 20px auto;
+      background: white;
+      padding: 24px;
+      border-radius: 18px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    }
+    .btn {
+      display: block;
+      margin: 12px 0;
+      padding: 14px;
+      border-radius: 12px;
+      text-align: center;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .green {
+      background: #12b886;
+      color: white;
+    }
+    .gold {
+      background: #d4af37;
+      color: #102a43;
+    }
+    .outline {
+      border: 2px solid #12b886;
+      color: #12b886;
+    }
+    .small {
+      font-size: 14px;
+      color: #607d8b;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <h1>AI Business Opportunity</h1>
+    <p>เรียนรู้ AI • สร้างตัวตน • ต่อยอดโอกาสธุรกิจดิจิทัล</p>
+    <p>โดยทีมงาน Everest</p>
+  </section>
+
+  <section class="box">
+    <h2>ยินดีต้อนรับครับ</h2>
+    <p>
+      เว็บไซต์นี้เหมาะสำหรับผู้ที่ต้องการเรียนรู้การใช้ AI การตลาดออนไลน์ 
+      การสร้างตัวตน และการต่อยอดโอกาสทางธุรกิจดิจิทัล
+    </p>
+
+    <h3>สิ่งที่คุณจะได้เรียนรู้</h3>
+    <ul>
+      <li>การใช้ AI เพื่อสร้างคอนเทนต์</li>
+      <li>การตลาดออนไลน์สำหรับมือใหม่</li>
+      <li>การสร้างตัวตนบนโลกออนไลน์</li>
+      <li>แนวทางต่อยอดโอกาสธุรกิจดิจิทัล</li>
+    </ul>
+  </section>
+
+  <section class="box">
+    <h2>ข้อมูลผู้แนะนำ</h2>
+    <p><strong>ชื่อ:</strong> <span id="sponsorName">กำลังโหลด...</span></p>
+    <p><strong>เบอร์โทร:</strong> <span id="sponsorPhone">กำลังโหลด...</span></p>
+
+    <a id="lineBtn" class="btn green" href="#">แอด LINE ผู้แนะนำ</a>
+    <a id="registerBtn" class="btn gold" href="#">ลงทะเบียน / รับข้อมูลเพิ่มเติม</a>
+    <a id="englishBtn" class="btn outline" href="#">English Version</a>
+  </section>
+
+  <section class="box">
+    <h2>ข้อสำคัญ</h2>
+    <p class="small">
+      ผลลัพธ์ขึ้นอยู่กับการเรียนรู้ การลงมือทำ ความสม่ำเสมอ 
+      และทักษะของแต่ละบุคคล เว็บไซต์นี้ไม่ใช่การรับประกันรายได้
+    </p>
+  </section>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const ref = params.get("ref") || "coachpaul";
+
+    fetch("../data/members.json")
+      .then(response => response.json())
+      .then(data => {
+        const member = data[ref] || data["coachpaul"];
+
+        document.getElementById("sponsorName").textContent = member.name_th;
+        document.getElementById("sponsorPhone").textContent = member.phone;
+        document.getElementById("lineBtn").href = member.line_url;
+        document.getElementById("registerBtn").href = member.register_link;
+        document.getElementById("englishBtn").href = "../en/?ref=" + ref;
+      });
+  </script>
+
+</body>
+</html>
