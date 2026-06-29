@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Business Opportunity by Coach Paul</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f8f7;
+      color: #102a43;
+    }
+    .hero {
+      padding: 40px 20px;
+      text-align: center;
+      background: linear-gradient(135deg, #06283d, #136f63);
+      color: white;
+    }
+    .hero h1 {
+      font-size: 34px;
+      margin-bottom: 12px;
+    }
+    .hero p {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+    .box {
+      max-width: 760px;
+      margin: 20px auto;
+      background: white;
+      padding: 24px;
+      border-radius: 18px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    }
+    .btn {
+      display: block;
+      margin: 12px 0;
+      padding: 14px;
+      border-radius: 12px;
+      text-align: center;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .green {
+      background: #12b886;
+      color: white;
+    }
+    .gold {
+      background: #d4af37;
+      color: #102a43;
+    }
+    .outline {
+      border: 2px solid #12b886;
+      color: #12b886;
+    }
+    .small {
+      font-size: 14px;
+      color: #607d8b;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <h1>AI Business Opportunity</h1>
+    <p>Learn AI • Build Your Personal Brand • Grow Your Digital Business</p>
+    <p>By Everest Team</p>
+  </section>
+
+  <section class="box">
+    <h2>Welcome</h2>
+    <p>
+      This website is for people who want to learn AI, online marketing, 
+      personal branding, and digital business opportunities.
+    </p>
+
+    <h3>What You Will Learn</h3>
+    <ul>
+      <li>How to use AI for content creation</li>
+      <li>Online marketing for beginners</li>
+      <li>Personal branding on social media</li>
+      <li>Digital business opportunity concepts</li>
+    </ul>
+  </section>
+
+  <section class="box">
+    <h2>Your Sponsor</h2>
+    <p><strong>Name:</strong> <span id="sponsorName">Loading...</span></p>
+    <p><strong>Phone:</strong> <span id="sponsorPhone">Loading...</span></p>
+
+    <a id="lineBtn" class="btn green" href="#">Contact Sponsor on LINE</a>
+    <a id="registerBtn" class="btn gold" href="#">Register / Get More Information</a>
+    <a id="thaiBtn" class="btn outline" href="#">ภาษาไทย</a>
+  </section>
+
+  <section class="box">
+    <h2>Important Notice</h2>
+    <p class="small">
+      Results depend on learning, action, consistency, and individual skills.
+      This website does not guarantee income or financial results.
+    </p>
+  </section>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const ref = params.get("ref") || "coachpaul";
+
+    fetch("../data/members.json")
+      .then(response => response.json())
+      .then(data => {
+        const member = data[ref] || data["coachpaul"];
+
+        document.getElementById("sponsorName").textContent = member.name_en;
+        document.getElementById("sponsorPhone").textContent = member.phone;
+        document.getElementById("lineBtn").href = member.line_url;
+        document.getElementById("registerBtn").href = member.register_link;
+        document.getElementById("thaiBtn").href = "../th/?ref=" + ref;
+      });
+  </script>
+
+</body>
+</html>
