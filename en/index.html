@@ -84,7 +84,7 @@
   </header>
 
   <!-- HERO SECTION -->
-  <section class="relative pt-16 pb-24 overflow-hidden">
+  <section class="relative pt-16 pb-16 overflow-hidden">
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.08)_0,transparent_100%)] pointer-events-none"></div>
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
       <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-xs font-semibold text-luxury-gold uppercase tracking-widest mb-6">
@@ -108,6 +108,39 @@
         <a href="#programs" class="w-full sm:w-auto px-8 py-4 rounded-xl border border-white/10 hover:bg-white/5 font-semibold transition duration-300 flex items-center justify-center gap-2">
           Explore Ecosystem
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- YOUTUBE VIDEO SECTION (HIGH-IMPACT VISIBILITY) -->
+  <section class="pb-24 relative z-10">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="text-center mb-8">
+        <h3 class="text-xl sm:text-2xl font-bold bg-gradient-to-r from-white via-slate-200 to-luxury-gold bg-clip-text text-transparent inline-flex items-center gap-2">
+          <i data-lucide="play-circle" class="w-6 h-6 text-luxury-gold animate-pulse"></i>
+          Business Presentation & Overview
+        </h3>
+        <p class="text-slate-400 text-xs sm:text-sm mt-2">Watch our master presentation video below to fully grasp the Everest Ecosystem and Business Plan.</p>
+      </div>
+
+      <!-- Video Container Frame -->
+      <div class="relative">
+        <!-- Golden-emerald glow background behind video frame -->
+        <div class="absolute -inset-2.5 rounded-3xl bg-gradient-to-r from-luxury-gold via-yellow-400 to-luxury-emerald opacity-25 blur-2xl"></div>
+        
+        <!-- Video Wrapper with premium border -->
+        <div class="relative glass-effect p-2 sm:p-3 rounded-2xl sm:rounded-3xl border border-white/15 overflow-hidden shadow-2xl">
+          <div class="aspect-video w-full rounded-xl sm:rounded-2xl overflow-hidden">
+            <iframe 
+              class="w-full h-full" 
+              src="https://www.youtube.com/embed/AwRucYhIVJc" 
+              title="Project Everest Business Presentation" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -162,7 +195,7 @@
     </div>
   </section>
 
-  <!-- THE 6 MEGA-PORTFOLIOS (vertical courses) -->
+  <!-- THE 6 MEGA-PORTFOLIOS -->
   <section id="programs" class="py-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto mb-16">
@@ -414,7 +447,7 @@
               <span class="px-2.5 py-1 rounded bg-blue-500/10 text-blue-400 text-[10px] font-bold">🔵 Popular</span>
             </div>
             <div class="mb-4">
-              <span class="text-3xl sm:text-4xl font-extrabold price-display" data-thb="1,605" data-usdt="52">1,605</span>
+              <span class="text-3xl sm:text-4xl font-extrabold price-display" data-thb="1,605" data-usdt="55">1,605</span>
               <span class="text-xs text-slate-400 text-unit"> THB</span>
               <span class="block text-[10px] text-slate-400 mt-1 font-semibold tax-label">+ VAT</span>
             </div>
@@ -437,7 +470,7 @@
               <span class="px-2.5 py-1 rounded bg-purple-500/10 text-purple-400 text-[10px] font-bold">🟣 Professional</span>
             </div>
             <div class="mb-4">
-              <span class="text-3xl sm:text-4xl font-extrabold price-display" data-thb="3,210" data-usdt="102">3,210</span>
+              <span class="text-3xl sm:text-4xl font-extrabold price-display" data-thb="3,210" data-usdt="111">3,210</span>
               <span class="text-xs text-slate-400 text-unit"> THB</span>
               <span class="block text-[10px] text-slate-400 mt-1 font-semibold tax-label">+ VAT</span>
             </div>
@@ -463,7 +496,7 @@
               <span class="px-2.5 py-1 rounded bg-luxury-gold/20 text-luxury-gold text-[10px] font-bold">👑 Signature</span>
             </div>
             <div class="mb-4">
-              <span class="text-3xl sm:text-4xl font-extrabold price-display" data-thb="7,490" data-usdt="232">7,490</span>
+              <span class="text-3xl sm:text-4xl font-extrabold price-display" data-thb="7,490" data-usdt="258">7,490</span>
               <span class="text-xs text-slate-400 text-unit"> THB</span>
               <span class="block text-[10px] text-luxury-emerald mt-1 font-semibold tax-label">VAT Included (net)</span>
             </div>
@@ -488,7 +521,7 @@
         <div>
           <h4 class="font-bold text-slate-200 text-sm mb-1">Important Notice regarding USDT Cryptocurrencies</h4>
           <p class="text-xs text-slate-400 leading-relaxed">
-            Please be advised that the equivalent price in **USDT** uses a specific independent blockchain processing tariff. Transaction parameters differ from direct THB bank transfers. Check the precise USDT final amount during the check-out process or coordinate directly with your registered Sponsor.
+            Please be advised that the equivalent price in **USDT** is calculated based on a fixed promotional exchange rate of **1 USDT = 29 THB**. This independent blocktariff rate factors in processing fees. Final USDT amounts during checkout are fixed to this calculation. Please coordinate with your Sponsor if you have further payment questions.
           </p>
         </div>
       </div>
@@ -678,20 +711,17 @@
      * @returns {string} - The fully-resolved absolute URL
      */
     function resolveURL(relativePath) {
-      // If NOT running within a Blob-simulated preview environment, let normal relative paths work
       if (window.location.protocol !== 'blob:') {
         return relativePath;
       }
       
       let base = window.location.origin;
       
-      // Attempt to inspect document.referrer (the parent page) to rebuild the actual relative directory path
       if (document.referrer && document.referrer.startsWith(window.location.origin)) {
         try {
           const refUrl = new URL(document.referrer);
           let path = refUrl.pathname;
           
-          // Strip filename if referrer contains file extension (e.g., "/index.html" -> "")
           if (path.endsWith('.html') || path.endsWith('.htm')) {
             path = path.substring(0, path.lastIndexOf('/'));
           }
@@ -702,7 +732,6 @@
       }
       
       try {
-        // Enforce trailing slash to ensure relative segment traversal performs accurately
         if (!base.endsWith('/')) {
           base += '/';
         }
@@ -759,11 +788,7 @@
         applyMemberData(member);
       })
       .catch(error => {
-        // We use console.warn instead of console.error to prevent sandboxed testing environments
-        // from flagging this as an unhandled console failure.
         console.warn("Using local fallback member data as remote JSON was not reachable:", error.message);
-        
-        // Apply fallback data gracefully without throwing a blocking console error
         const member = fallbackMembers[ref] || fallbackMembers["coachpaul"];
         applyMemberData(member);
       });
