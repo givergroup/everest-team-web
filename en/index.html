@@ -3,92 +3,105 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Project Everest | Digital Masterclass & Global Opportunity</title>
+  <title>Project Everest | The Ultimate Peak of Digital Success</title>
   
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   
-  <!-- Premium Fonts -->
+  <!-- Ultra Luxury Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
+  <!-- Tailwind Configuration for Ultra Premium Palette -->
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
             sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-            serif: ['"Playfair Display"', 'serif'],
+            serif: ['"Cinzel"', 'serif'],
           },
           colors: {
-            luxury: {
-              black: '#02040a',
-              dark: '#050a15',
-              card: '#0a1224',
-              gold: '#d4af37',
-              goldHover: '#f3e5ab',
-              goldLight: '#fef08a',
-              emerald: '#10b981',
-              emeraldDark: '#059669',
-              slate: '#94a3b8',
-              border: 'rgba(212, 175, 55, 0.15)',
+            gold: {
+              DEFAULT: '#D4AF37', // Metallic Gold
+              light: '#F3E5AB',
+              dark: '#AA7C11',
+              premium: '#C5A059'
+            },
+            obsidian: {
+              deep: '#030308',
+              card: '#080C16',
+              border: '#151D30'
+            },
+            emerald: {
+              DEFAULT: '#10B981',
+              dark: '#065F46',
+              light: '#34D399'
             }
-          },
-          animation: {
-            'spin-slow': 'spin 12s linear infinite',
-            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
           }
         }
       }
     }
   </script>
 
+  <!-- Luxury Animations & Style Tweaks -->
   <style>
     html {
       scroll-behavior: smooth;
     }
     
-    /* Premium Glassmorphism */
-    .glass-effect {
-      background: rgba(10, 18, 36, 0.75);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.05);
+    /* Elegant Dark Glassmorphism */
+    .luxury-glass {
+      background: rgba(8, 12, 22, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(212, 175, 55, 0.1);
     }
     
-    /* High-end Gold Border Glow */
-    .luxury-gold-glow {
-      box-shadow: 0 0 35px rgba(212, 175, 55, 0.1);
-      border: 1px solid rgba(212, 175, 55, 0.2);
+    /* Ultimate Gold Radial Glows */
+    .gold-radial-glow {
+      box-shadow: 0 0 50px rgba(212, 175, 55, 0.12);
     }
 
-    .luxury-emerald-glow {
-      box-shadow: 0 0 35px rgba(16, 185, 129, 0.1);
-      border: 1px solid rgba(16, 185, 129, 0.2);
+    .emerald-radial-glow {
+      box-shadow: 0 0 50px rgba(16, 185, 129, 0.12);
     }
 
-    /* Ambient background gradient mapping */
-    .luxury-gradient-bg {
-      background-color: #030712;
+    /* Cinematic Animated Background */
+    .ultra-luxury-bg {
+      background-color: #020205;
       background-image: 
-        radial-gradient(circle at 10% 15%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
-        radial-gradient(circle at 85% 75%, rgba(16, 185, 129, 0.06) 0%, transparent 45%),
-        radial-gradient(circle at 50% 35%, rgba(59, 130, 246, 0.03) 0%, transparent 50%);
+        radial-gradient(circle at 5% 10%, rgba(212, 175, 55, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 95% 85%, rgba(16, 185, 129, 0.08) 0%, transparent 45%),
+        radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 0.95) 0%, #020205 100%);
     }
 
-    /* Shimmer animation on important buttons */
-    @keyframes shimmer {
+    /* Text Reflection / Premium Gold Gradient Text */
+    .text-gold-gradient {
+      background: linear-gradient(135deg, #FFF 30%, #F3E5AB 70%, #D4AF37 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .text-emerald-gradient {
+      background: linear-gradient(135deg, #FFF 40%, #A7F3D0 70%, #10B981 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Shimmer Button Effect */
+    @keyframes luxury-shimmer {
       100% { transform: translateX(100%); }
     }
-    .shimmer-btn {
+    .shimmer-active {
       position: relative;
       overflow: hidden;
     }
-    .shimmer-btn::after {
+    .shimmer-active::after {
       content: '';
       position: absolute;
       top: 0; right: 0; bottom: 0; left: 0;
@@ -96,82 +109,81 @@
       background-image: linear-gradient(
         90deg,
         rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0.2) 20%,
-        rgba(255, 255, 255, 0.4) 60%,
+        rgba(255, 255, 255, 0.25) 30%,
+        rgba(255, 255, 255, 0.5) 60%,
         rgba(255, 255, 255, 0) 100%
       );
-      animation: shimmer 3.5s infinite;
+      animation: luxury-shimmer 4s infinite;
     }
   </style>
 </head>
-<body class="luxury-gradient-bg text-slate-100 font-sans antialiased overflow-x-hidden">
+<body class="ultra-luxury-bg text-slate-200 font-sans antialiased overflow-x-hidden">
 
-  <!-- Header Navigation -->
-  <header class="sticky top-0 z-50 glass-effect border-b border-white/5 transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <!-- Logo Icon -->
-        <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-luxury-gold to-yellow-500 flex items-center justify-center shadow-lg relative group">
-          <div class="absolute inset-0 rounded-xl bg-luxury-gold blur opacity-30 group-hover:opacity-60 transition duration-300"></div>
-          <i data-lucide="mountain" class="w-6 h-6 text-luxury-black relative z-10"></i>
+  <!-- Premium Header & Language Switcher -->
+  <header class="sticky top-0 z-50 luxury-glass border-b border-gold/15 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <!-- Ultra Logo -->
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-gold via-yellow-200 to-gold-dark flex items-center justify-center shadow-lg relative group">
+          <div class="absolute inset-0 rounded-xl bg-gold blur opacity-40 group-hover:opacity-75 transition duration-300"></div>
+          <i data-lucide="mountain" class="w-7 h-7 text-obsidian-deep relative z-10"></i>
         </div>
         <div>
-          <span class="text-xl font-black tracking-widest bg-gradient-to-r from-white via-slate-200 to-luxury-gold bg-clip-text text-transparent block">PROJECT EVEREST</span>
-          <span class="block text-[9px] text-luxury-emerald tracking-[0.25em] font-bold">THE SUMMIT OF DIGITAL WEALTH</span>
+          <span class="text-2xl font-black tracking-[0.15em] font-serif bg-gradient-to-r from-white via-gold-light to-gold bg-clip-text text-transparent block">PROJECT EVEREST</span>
+          <span class="block text-[9px] text-emerald tracking-[0.3em] font-extrabold uppercase">THE SUMMIT OF DIGITAL WEALTH</span>
         </div>
       </div>
       <div>
-        <a id="thaiBtnHeader" href="#" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 hover:border-luxury-gold/40 text-xs font-semibold transition duration-300 text-slate-300 hover:text-luxury-gold shadow-sm">
+        <a id="thaiBtnHeader" href="#" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-gold/30 hover:border-gold text-xs font-bold transition duration-300 text-gold hover:bg-gold/5 shadow-md">
           <span>🇹🇭</span> THAI VERSION
         </a>
       </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="relative pt-12 pb-20 overflow-hidden">
-    <!-- Subtle spotlight glow behind banner -->
-    <div class="absolute top-[20%] left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-luxury-gold/10 rounded-full filter blur-[100px] pointer-events-none"></div>
+  <!-- Premium Hero Section -->
+  <section class="relative pt-16 pb-24 overflow-hidden">
+    <div class="absolute top-[10%] left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-gold/5 rounded-full filter blur-[120px] pointer-events-none"></div>
     
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
       
-      <!-- Top Micro-Badge -->
-      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-xs font-semibold text-luxury-gold uppercase tracking-widest mb-8">
+      <!-- Top Badge -->
+      <div class="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-gold/10 border border-gold/30 text-[11px] font-bold text-gold uppercase tracking-[0.2em] mb-10">
         <span class="relative flex h-2.5 w-2.5">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-luxury-gold opacity-75"></span>
-          <span class="relative rounded-full h-2.5 w-2.5 bg-luxury-gold"></span>
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold opacity-75"></span>
+          <span class="relative rounded-full h-2.5 w-2.5 bg-gold"></span>
         </span>
-        PREMIUM GLOBAL AFFILIATE PLATFORM
+        PREMIUM DIGITAL SYSTEM & AFFILIATE GLOBAL PLATFORM
       </div>
       
-      <!-- Main Premium Headline -->
-      <h1 class="text-4xl sm:text-7xl font-extrabold tracking-tight mb-6 leading-[1.1] font-serif">
+      <!-- Majestic Headline -->
+      <h1 class="text-4xl sm:text-7xl font-extrabold tracking-tight mb-8 leading-[1.1] font-serif">
         Reach Your Peak with <br/>
-        <span class="bg-gradient-to-r from-white via-yellow-100 to-luxury-gold bg-clip-text text-transparent">Project Everest</span>
+        <span class="text-gold-gradient">Project Everest</span>
       </h1>
       
-      <!-- Premium Paragraph Description -->
-      <p class="text-base sm:text-xl text-slate-300 max-w-3xl mx-auto font-light leading-relaxed mb-12">
-        An elite digital frontier systemizing world-class commercial academies, advanced marketing structures, and recurring referral mechanics designed to scale modern businesses globally.
+      <!-- Premium Value Proposition -->
+      <p class="text-base sm:text-2xl text-slate-300 max-w-4xl mx-auto font-light leading-relaxed mb-12">
+        Learn. Apply. Build business opportunities. A world-class luxury ecosystem integrating premium digital academy suites, advanced marketing algorithms, and recurring global affiliate mechanics.
       </p>
 
-      <!-- CTA Buttons Block -->
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-        <a href="#sponsor-box" class="w-full sm:w-auto px-10 py-4.5 rounded-xl bg-gradient-to-r from-luxury-gold to-yellow-600 hover:from-yellow-500 hover:to-luxury-gold text-luxury-black font-extrabold transition duration-300 shadow-xl shadow-luxury-gold/15 flex items-center justify-center gap-2 text-sm uppercase tracking-wider shimmer-btn">
+      <!-- CTA Hub -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-5 mb-20">
+        <a href="#sponsor-box" class="w-full sm:w-auto px-10 py-5 rounded-xl bg-gradient-to-r from-gold via-yellow-500 to-gold-dark hover:from-yellow-400 hover:to-gold text-obsidian-deep font-black transition duration-300 shadow-2xl shadow-gold/20 flex items-center justify-center gap-2 text-sm uppercase tracking-wider shimmer-active">
           Connect with Sponsor <i data-lucide="arrow-right-circle" class="w-5 h-5"></i>
         </a>
-        <a href="#ecosystem" class="w-full sm:w-auto px-10 py-4.5 rounded-xl border border-white/10 hover:border-white/20 hover:bg-white/5 font-bold text-sm transition duration-300 flex items-center justify-center gap-2 uppercase tracking-wider">
-          Explore Academy
+        <a href="#programs" class="w-full sm:w-auto px-10 py-5 rounded-xl border border-gold/25 text-gold hover:text-white hover:bg-gold/5 font-bold text-sm transition duration-300 flex items-center justify-center gap-2 uppercase tracking-wider">
+          Explore Academy Courses
         </a>
       </div>
 
-      <!-- Golden Banner Container -->
+      <!-- Main GitHub Banner Frame -->
       <div class="relative max-w-5xl mx-auto group">
-        <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-luxury-gold via-yellow-400 to-luxury-emerald opacity-25 blur-2xl group-hover:opacity-40 transition duration-700"></div>
-        <div class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-luxury-card">
+        <div class="absolute -inset-1.5 rounded-3xl bg-gradient-to-r from-gold via-yellow-400 to-emerald opacity-30 blur-2xl group-hover:opacity-50 transition duration-700"></div>
+        <div class="relative rounded-2xl overflow-hidden border-2 border-gold/20 shadow-2xl bg-obsidian-card">
           <img 
             src="https://raw.githubusercontent.com/givergroup/everest-team-web/refs/heads/main/en/everest-eng.png" 
-            alt="Everest Digital Product & Global Opportunity Banner" 
+            alt="Project Everest Elite Banner" 
             class="w-full h-auto object-cover transform scale-100 group-hover:scale-[1.01] transition duration-700"
           >
         </div>
@@ -180,29 +192,28 @@
     </div>
   </section>
 
-  <!-- Featured Business Presentation & Video -->
-  <section class="py-12 relative z-10 bg-[#040812]/50 border-y border-white/5">
+  <!-- Official Video Webinar Presenter -->
+  <section class="py-16 relative z-10 bg-obsidian-deep/80 border-y border-gold/10">
     <div class="max-w-4xl mx-auto px-4 sm:px-6">
       
-      <div class="text-center mb-10">
-        <div class="flex items-center justify-center gap-2 text-xs font-bold text-luxury-gold tracking-widest uppercase mb-2">
-          <i data-lucide="play-circle" class="w-5 h-5 animate-pulse"></i> DIGITAL WEBINAR
+      <div class="text-center mb-12">
+        <div class="flex items-center justify-center gap-2 text-xs font-bold text-gold tracking-[0.25em] uppercase mb-3">
+          <i data-lucide="play-circle" class="w-5 h-5 text-gold animate-pulse"></i> DIGITAL WEBINAR PRESENTATION
         </div>
-        <h3 class="text-2xl sm:text-4xl font-bold font-serif bg-gradient-to-r from-white via-slate-200 to-luxury-gold bg-clip-text text-transparent">
+        <h3 class="text-2xl sm:text-4xl font-bold font-serif text-gold-gradient">
           The Business Presentation & Opportunity
         </h3>
         <p class="text-slate-400 text-xs sm:text-sm mt-3 max-w-2xl mx-auto">
-          Learn how Project Everest matches state-of-the-art masterclasses with a rewarding compensation blueprint in our official 15-minute briefing.
+          Unveil the mechanics of our digital assets, masterclasses, and global compensation plans in this elegant 15-minute blueprint presentation.
         </p>
       </div>
 
-      <!-- Cinematic Video Wrapper -->
+      <!-- Video Display -->
       <div class="relative group">
-        <!-- Glow accents around video frame -->
-        <div class="absolute -inset-3 rounded-2xl bg-gradient-to-r from-luxury-gold via-amber-500 to-luxury-emerald opacity-20 blur-2xl group-hover:opacity-30 transition duration-500"></div>
+        <div class="absolute -inset-4 rounded-3xl bg-gradient-to-r from-gold/15 via-emerald/10 to-transparent opacity-40 blur-2xl group-hover:opacity-60 transition duration-500"></div>
         
-        <div class="relative glass-effect p-2 sm:p-4 rounded-2xl border border-white/10 overflow-hidden shadow-2xl">
-          <div class="aspect-video w-full rounded-xl overflow-hidden bg-luxury-black relative">
+        <div class="relative luxury-glass p-3 sm:p-5 rounded-3xl border border-gold/20 shadow-2xl">
+          <div class="aspect-video w-full rounded-2xl overflow-hidden bg-black relative">
             <iframe 
               class="absolute inset-0 w-full h-full" 
               src="https://www.youtube.com/embed/xGTa7TuRMZA" 
@@ -218,63 +229,62 @@
     </div>
   </section>
 
-  <!-- What is Project Everest (About) -->
+  <!-- Detailed Brand Concept Section -->
   <section id="ecosystem" class="py-24 relative overflow-hidden">
-    <!-- Ambient background element -->
-    <div class="absolute top-1/2 right-0 w-[400px] h-[400px] bg-luxury-emerald/5 rounded-full filter blur-[100px] pointer-events-none"></div>
+    <div class="absolute top-1/2 right-0 w-[500px] h-[500px] bg-emerald/5 rounded-full filter blur-[150px] pointer-events-none"></div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
         
-        <!-- Left explanation text -->
-        <div class="lg:col-span-5 space-y-6">
-          <div class="inline-flex items-center gap-2 text-luxury-emerald text-xs font-bold tracking-widest uppercase">
-            <span class="w-2.5 h-2.5 rounded-full bg-luxury-emerald animate-pulse"></span> SYSTEM ARCHITECTURE
+        <!-- Concept Details -->
+        <div class="lg:col-span-5 space-y-8">
+          <div class="inline-flex items-center gap-2 text-emerald text-xs font-bold tracking-[0.25em] uppercase">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald animate-pulse"></span> SYSTEM INTEGRATION
           </div>
           <h2 class="text-3xl sm:text-5xl font-bold font-serif leading-tight">
-            What is <br class="hidden sm:inline"/>
-            <span class="bg-gradient-to-r from-white via-slate-200 to-luxury-gold bg-clip-text text-transparent">Project Everest?</span>
+            What is <br />
+            <span class="text-gold-gradient">Project Everest?</span>
           </h2>
-          <p class="text-slate-300 leading-relaxed text-sm sm:text-base font-light">
-            Project Everest is a cutting-edge hybrid ecosystem designed to address the needs of modern digital entrepreneurs. By consolidating top-tier vocational knowledge and modern business systems into one integrated hub, we make digital-age skills accessible and monetizable.
+          <p class="text-slate-300 leading-relaxed font-light text-base">
+            Project Everest is a cutting-edge digital platform that brings together online courses, educational media, and a wide range of digital content in one integrated system. The platform is designed to help users learn, develop practical skills, and apply their knowledge to real-life opportunities.
           </p>
           
-          <div class="space-y-4 pt-4">
-            <!-- Strategic Value 1 -->
-            <div class="flex gap-4 p-4 rounded-xl bg-white/5 border border-white/5 hover:border-luxury-border transition duration-300">
-              <div class="w-11 h-11 rounded-lg bg-luxury-emerald/10 border border-luxury-emerald/20 flex items-center justify-center flex-shrink-0">
-                <i data-lucide="check-circle-2" class="w-5 h-5 text-luxury-emerald"></i>
+          <div class="space-y-4 pt-2">
+            <!-- Pillar 1 -->
+            <div class="flex gap-4 p-5 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-gold/20 transition duration-300">
+              <div class="w-12 h-12 rounded-xl bg-gold/10 border border-gold/20 flex items-center justify-center flex-shrink-0">
+                <i data-lucide="check-circle" class="w-6 h-6 text-gold"></i>
               </div>
               <div>
-                <h4 class="font-bold text-white text-sm sm:text-base">Acquisition of Practical Skills</h4>
+                <h4 class="font-bold text-white text-base">Practical Skill Acquisition</h4>
                 <p class="text-slate-400 text-xs sm:text-sm mt-1">
-                  Courses focus purely on real-world enterprise execution, skipping complex academic theories.
+                  Courses focus strictly on real-world enterprise execution, skipped complex academic theories.
                 </p>
               </div>
             </div>
-            <!-- Strategic Value 2 -->
-            <div class="flex gap-4 p-4 rounded-xl bg-white/5 border border-white/5 hover:border-luxury-border transition duration-300">
-              <div class="w-11 h-11 rounded-lg bg-luxury-gold/10 border border-luxury-gold/20 flex items-center justify-center flex-shrink-0">
-                <i data-lucide="trending-up" class="w-5 h-5 text-luxury-gold"></i>
+            <!-- Pillar 2 -->
+            <div class="flex gap-4 p-5 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-emerald/20 transition duration-300">
+              <div class="w-12 h-12 rounded-xl bg-emerald/10 border border-emerald/20 flex items-center justify-center flex-shrink-0">
+                <i data-lucide="trending-up" class="w-6 h-6 text-emerald"></i>
               </div>
               <div>
-                <h4 class="font-bold text-white text-sm sm:text-base">Automated Affiliate Infrastructure</h4>
+                <h4 class="font-bold text-white text-base">Compounding Business Opportunities</h4>
                 <p class="text-slate-400 text-xs sm:text-sm mt-1">
-                  Access a highly responsive personal network tracking system to monetize your referrals globally.
+                  Leverage automated tracking networks to build, recommend, and monetize modern affiliate systems globally.
                 </p>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Right Visual Diagram -->
+        <!-- Ecosystem Illustration -->
         <div class="lg:col-span-7 relative group">
-          <div class="absolute -inset-2 rounded-2xl bg-gradient-to-tr from-luxury-emerald via-yellow-600 to-luxury-gold opacity-15 blur-2xl group-hover:opacity-25 transition duration-500"></div>
-          <div class="relative glass-effect p-3 rounded-2xl border border-white/10 overflow-hidden shadow-2xl bg-luxury-dark/90">
+          <div class="absolute -inset-2 rounded-3xl bg-gradient-to-tr from-emerald/15 via-gold/10 to-transparent opacity-25 blur-3xl group-hover:opacity-40 transition duration-500"></div>
+          <div class="relative luxury-glass p-3 rounded-2xl border border-gold/25 overflow-hidden shadow-2xl bg-obsidian-deep/90">
             <img 
               src="https://raw.githubusercontent.com/givergroup/everest-team-web/refs/heads/main/en/projecteverest-eng.png" 
-              alt="Project Everest Ecosystem Map" 
-              class="w-full h-auto rounded-lg"
+              alt="Project Everest Ecosystem Map Diagram" 
+              class="w-full h-auto rounded-xl"
             >
           </div>
         </div>
@@ -283,161 +293,161 @@
     </div>
   </section>
 
-  <!-- Everest Academy: The 9 Professional Learning Categories -->
-  <section id="programs" class="py-24 bg-luxury-black/40 border-t border-white/5">
+  <!-- Everest Academy - Official 9 Learning Categories -->
+  <section id="programs" class="py-24 bg-obsidian-deep/50 border-t border-gold/10 relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="text-xs font-bold text-luxury-gold uppercase tracking-[0.2em] block mb-2">EVEREST ACADEMY PRO</span>
-        <h2 class="text-3xl sm:text-5xl font-bold mb-4 font-serif">9 Elite Learning Categories</h2>
-        <p class="text-slate-400 text-sm sm:text-base">
-          Our platform officially launches with nine professional vocational silos, regularly refreshed with modern curriculum updates.
+      <div class="text-center max-w-3xl mx-auto mb-20">
+        <span class="text-xs font-black text-gold uppercase tracking-[0.3em] block mb-3">EVEREST ACADEMY SUITE</span>
+        <h2 class="text-3xl sm:text-5xl font-bold mb-4 font-serif text-gold-gradient">9 Professional Learning Categories</h2>
+        <p class="text-slate-400 text-sm sm:text-base font-light">
+          A learning and career-building platform bringing together essential modern vocational courses curated for instant real-world application.
         </p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         
-        <!-- Category 1 -->
-        <div class="glass-effect p-8 rounded-2xl border border-white/5 hover:border-luxury-gold/30 hover:scale-[1.01] transition duration-300 group flex flex-col justify-between h-[300px]">
+        <!-- Cat 1 -->
+        <div class="luxury-glass p-8 rounded-2xl hover:border-gold/40 hover:scale-[1.01] transition duration-300 group flex flex-col justify-between min-h-[300px]">
           <div>
-            <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center mb-6 group-hover:bg-luxury-gold/15 transition duration-300">
-              <i data-lucide="languages" class="w-6 h-6 text-luxury-gold"></i>
+            <div class="w-12 h-12 rounded-xl bg-gold/5 flex items-center justify-center mb-6 group-hover:bg-gold/15 border border-gold/10 transition">
+              <i data-lucide="languages" class="w-6 h-6 text-gold"></i>
             </div>
-            <h3 class="text-lg font-bold mb-2 text-white group-hover:text-luxury-gold transition duration-200">1. English for Communication</h3>
+            <h3 class="text-lg font-bold mb-2 text-white group-hover:text-gold transition">1. English for Communication</h3>
             <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
-              Master practical language skills tailored for business, international workflows, customer support, and personal leadership.
+              Develop practical English skills for daily life, work, international customer communications, and leadership confidence.
             </p>
           </div>
-          <div class="flex items-center gap-2 pt-4 border-t border-white/5">
-            <span class="text-[10px] uppercase font-bold text-luxury-gold tracking-wider">Level: All Levels</span>
+          <div class="pt-4 border-t border-white/5 mt-6 text-[10px] text-slate-500 uppercase font-bold tracking-widest">
+            Syllabus: Working Professionals & Business Owners
           </div>
         </div>
 
-        <!-- Category 2 -->
-        <div class="glass-effect p-8 rounded-2xl border border-white/5 hover:border-blue-500/30 hover:scale-[1.01] transition duration-300 group flex flex-col justify-between h-[300px]">
+        <!-- Cat 2 -->
+        <div class="luxury-glass p-8 rounded-2xl hover:border-blue-400/40 hover:scale-[1.01] transition duration-300 group flex flex-col justify-between min-h-[300px]">
           <div>
-            <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center mb-6 group-hover:bg-blue-500/15 transition duration-300">
+            <div class="w-12 h-12 rounded-xl bg-blue-500/5 flex items-center justify-center mb-6 group-hover:bg-blue-500/15 border border-blue-500/10 transition">
               <i data-lucide="facebook" class="w-6 h-6 text-blue-400"></i>
             </div>
-            <h3 class="text-lg font-bold mb-2 text-white group-hover:text-blue-400 transition duration-200">2. Facebook & Fanpage Marketing</h3>
+            <h3 class="text-lg font-bold mb-2 text-white group-hover:text-blue-400 transition">2. Facebook & Fanpage Marketing</h3>
             <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
               Formulate organic fanpage growth, write viral copy, scale local audiences, and establish authoritative corporate branding.
             </p>
           </div>
-          <div class="flex items-center gap-2 pt-4 border-t border-white/5">
-            <span class="text-[10px] uppercase font-bold text-blue-400 tracking-wider">Level: Intermediate</span>
+          <div class="pt-4 border-t border-white/5 mt-6 text-[10px] text-slate-500 uppercase font-bold tracking-widest">
+            Syllabus: Online Sellers & Brand Builders
           </div>
         </div>
 
-        <!-- Category 3 -->
-        <div class="glass-effect p-8 rounded-2xl border border-white/5 hover:border-pink-500/30 hover:scale-[1.01] transition duration-300 group flex flex-col justify-between h-[300px]">
+        <!-- Cat 3 -->
+        <div class="luxury-glass p-8 rounded-2xl hover:border-purple-400/40 hover:scale-[1.01] transition duration-300 group flex flex-col justify-between min-h-[300px]">
           <div>
-            <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center mb-6 group-hover:bg-pink-500/15 transition duration-300">
-              <i data-lucide="video" class="w-6 h-6 text-pink-400"></i>
+            <div class="w-12 h-12 rounded-xl bg-purple-500/5 flex items-center justify-center mb-6 group-hover:bg-purple-500/15 border border-purple-500/10 transition">
+              <i data-lucide="cpu" class="w-6 h-6 text-purple-400"></i>
             </div>
-            <h3 class="text-lg font-bold mb-2 text-white group-hover:text-pink-400 transition duration-200">3. TikTok Brand Domination</h3>
+            <h3 class="text-lg font-bold mb-2 text-white group-hover:text-purple-400 transition">3. AI for Business & Marketing</h3>
             <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
-              Uncover short-form viral algorithm hacks, target shopping basket affiliate buyers, and script engaging hooks to generate massive traffic.
+              Harness AI tools to plan marketing, write complex content formulas, generate graphic assets, and multiply operational speed.
             </p>
           </div>
-          <div class="flex items-center gap-2 pt-4 border-t border-white/5">
-            <span class="text-[10px] uppercase font-bold text-pink-400 tracking-wider">Level: Advanced</span>
+          <div class="pt-4 border-t border-white/5 mt-6 text-[10px] text-slate-500 uppercase font-bold tracking-widest">
+            Syllabus: Content Creators & Modern Executives
           </div>
         </div>
 
-        <!-- Category 4 -->
-        <div class="glass-effect p-8 rounded-2xl border border-white/5 hover:border-luxury-emerald/30 hover:scale-[1.01] transition duration-300 group flex flex-col justify-between h-[300px]">
+        <!-- Cat 4 -->
+        <div class="luxury-glass p-8 rounded-2xl hover:border-amber-500/40 hover:scale-[1.01] transition duration-300 group flex flex-col justify-between min-h-[300px]">
           <div>
-            <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center mb-6 group-hover:bg-luxury-emerald/15 transition duration-300">
-              <i data-lucide="bar-chart-3" class="w-6 h-6 text-luxury-emerald"></i>
+            <div class="w-12 h-12 rounded-xl bg-amber-500/5 flex items-center justify-center mb-6 group-hover:bg-amber-500/15 border border-amber-500/10 transition">
+              <i data-lucide="sparkles" class="w-6 h-6 text-amber-400"></i>
             </div>
-            <h3 class="text-lg font-bold mb-2 text-white group-hover:text-luxury-emerald transition duration-200">4. Advanced Digital Marketing</h3>
+            <h3 class="text-lg font-bold mb-2 text-white group-hover:text-amber-400 transition">4. Tarot Reading & Forecasting</h3>
             <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
-              Deploy high-conversion paid ads, manage pixel retargeting pipelines, and design elegant visual sales funnels from scratch.
+              Master the fundamentals of card reading, energy interpretation, and forecasting logic. Develop a unique service-based income stream.
             </p>
           </div>
-          <div class="flex items-center gap-2 pt-4 border-t border-white/5">
-            <span class="text-[10px] uppercase font-bold text-luxury-emerald tracking-wider">Level: Advanced</span>
+          <div class="pt-4 border-t border-white/5 mt-6 text-[10px] text-slate-500 uppercase font-bold tracking-widest">
+            Syllabus: Spiritual Sciences & Specialized Careers
           </div>
         </div>
 
-        <!-- Category 5 -->
-        <div class="glass-effect p-8 rounded-2xl border border-white/5 hover:border-indigo-400/30 hover:scale-[1.01] transition duration-300 group flex flex-col justify-between h-[300px]">
+        <!-- Cat 5 -->
+        <div class="luxury-glass p-8 rounded-2xl hover:border-orange-500/40 hover:scale-[1.01] transition duration-300 group flex flex-col justify-between min-h-[300px]">
           <div>
-            <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center mb-6 group-hover:bg-indigo-400/15 transition duration-300">
-              <i data-lucide="cpu" class="w-6 h-6 text-indigo-400"></i>
-            </div>
-            <h3 class="text-lg font-bold mb-2 text-white group-hover:text-indigo-400 transition duration-200">5. Artificial Intelligence Utility</h3>
-            <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
-              Incorporate AI agents, prompt frameworks, and multi-model tools like ChatGPT and Midjourney into daily commercial workflows.
-            </p>
-          </div>
-          <div class="flex items-center gap-2 pt-4 border-t border-white/5">
-            <span class="text-[10px] uppercase font-bold text-indigo-400 tracking-wider">Level: Elite Specialist</span>
-          </div>
-        </div>
-
-        <!-- Category 6 -->
-        <div class="glass-effect p-8 rounded-2xl border border-white/5 hover:border-orange-500/30 hover:scale-[1.01] transition duration-300 group flex flex-col justify-between h-[300px]">
-          <div>
-            <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center mb-6 group-hover:bg-orange-500/15 transition duration-300">
+            <div class="w-12 h-12 rounded-xl bg-orange-500/5 flex items-center justify-center mb-6 group-hover:bg-orange-500/15 border border-orange-500/10 transition">
               <i data-lucide="chef-hat" class="w-6 h-6 text-orange-400"></i>
             </div>
-            <h3 class="text-lg font-bold mb-2 text-white group-hover:text-orange-400 transition duration-200">6. Culinary Arts Masterclass</h3>
+            <h3 class="text-lg font-bold mb-2 text-white group-hover:text-orange-400 transition">5. Culinary Arts Mastery</h3>
             <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
-              Learn professional recipe styling, kitchen optimization, and culinary management frameworks directly from industrial chefs.
+              Learn professional recipes, kitchen management, and commercial food frameworks to start an online food business or restaurant.
             </p>
           </div>
-          <div class="flex items-center gap-2 pt-4 border-t border-white/5">
-            <span class="text-[10px] uppercase font-bold text-orange-400 tracking-wider">Level: Specialist</span>
+          <div class="pt-4 border-t border-white/5 mt-6 text-[10px] text-slate-500 uppercase font-bold tracking-widest">
+            Syllabus: Food Entrepreneurs & F&B Managers
           </div>
         </div>
 
-        <!-- Category 7 -->
-        <div class="glass-effect p-8 rounded-2xl border border-white/5 hover:border-purple-500/30 hover:scale-[1.01] transition duration-300 group flex flex-col justify-between h-[300px]">
+        <!-- Cat 6 -->
+        <div class="luxury-glass p-8 rounded-2xl hover:border-emerald/40 hover:scale-[1.01] transition duration-300 group flex flex-col justify-between min-h-[300px]">
           <div>
-            <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center mb-6 group-hover:bg-purple-500/15 transition duration-300">
-              <i data-lucide="globe" class="w-6 h-6 text-purple-400"></i>
+            <div class="w-12 h-12 rounded-xl bg-emerald/5 flex items-center justify-center mb-6 group-hover:bg-emerald/15 border border-emerald/10 transition">
+              <i data-lucide="video" class="w-6 h-6 text-emerald"></i>
             </div>
-            <h3 class="text-lg font-bold mb-2 text-white group-hover:text-purple-400 transition duration-200">7. Global Languages Hub</h3>
+            <h3 class="text-lg font-bold mb-2 text-white group-hover:text-emerald transition">6. TikTok Brand Domination</h3>
             <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
-              Break language barriers with multi-language packages. Master business terminology, negotiations, and social dynamics.
+              Unleash viral content formulas, short-form algorithm secrets, shopping basket setups, and custom affiliate campaigns on TikTok.
             </p>
           </div>
-          <div class="flex items-center gap-2 pt-4 border-t border-white/5">
-            <span class="text-[10px] uppercase font-bold text-purple-400 tracking-wider">Level: All Levels</span>
+          <div class="pt-4 border-t border-white/5 mt-6 text-[10px] text-slate-500 uppercase font-bold tracking-widest">
+            Syllabus: Influencers & E-commerce Merchants
           </div>
         </div>
 
-        <!-- Category 8 -->
-        <div class="glass-effect p-8 rounded-2xl border border-white/5 hover:border-red-400/30 hover:scale-[1.01] transition duration-300 group flex flex-col justify-between h-[300px]">
+        <!-- Cat 7 -->
+        <div class="luxury-glass p-8 rounded-2xl hover:border-blue-500/40 hover:scale-[1.01] transition duration-300 group flex flex-col justify-between min-h-[300px]">
           <div>
-            <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center mb-6 group-hover:bg-red-400/15 transition duration-300">
-              <i data-lucide="film" class="w-6 h-6 text-red-400"></i>
+            <div class="w-12 h-12 rounded-xl bg-blue-500/5 flex items-center justify-center mb-6 group-hover:bg-blue-500/15 border border-blue-500/10 transition">
+              <i data-lucide="globe-2" class="w-6 h-6 text-blue-400"></i>
             </div>
-            <h3 class="text-lg font-bold mb-2 text-white group-hover:text-red-400 transition duration-200">8. Vertical Video Entertainment</h3>
+            <h3 class="text-lg font-bold mb-2 text-white group-hover:text-blue-400 transition">7. Advanced Online Marketing</h3>
             <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
-              Gain access to high-end vertical short series produced for mobile consumption. Perfect for modern entertainment lovers.
+              Plan complex online advertising, manage lead pipelines, design funnels, and optimize customer acquisitions cross-networks.
             </p>
           </div>
-          <div class="flex items-center gap-2 pt-4 border-t border-white/5">
-            <span class="text-[10px] uppercase font-bold text-red-400 tracking-wider">Level: Entertainment Premium</span>
+          <div class="pt-4 border-t border-white/5 mt-6 text-[10px] text-slate-500 uppercase font-bold tracking-widest">
+            Syllabus: SMEs & Scaling Agency Builders
           </div>
         </div>
 
-        <!-- Category 9 -->
-        <div class="glass-effect p-8 rounded-2xl border border-white/5 hover:border-teal-400/30 hover:scale-[1.01] transition duration-300 group flex flex-col justify-between h-[300px]">
+        <!-- Cat 8 -->
+        <div class="luxury-glass p-8 rounded-2xl hover:border-rose-500/40 hover:scale-[1.01] transition duration-300 group flex flex-col justify-between min-h-[300px]">
           <div>
-            <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center mb-6 group-hover:bg-teal-400/15 transition duration-300">
-              <i data-lucide="award" class="w-6 h-6 text-teal-400"></i>
+            <div class="w-12 h-12 rounded-xl bg-rose-500/5 flex items-center justify-center mb-6 group-hover:bg-rose-500/15 border border-rose-500/10 transition">
+              <i data-lucide="film" class="w-6 h-6 text-rose-400"></i>
             </div>
-            <h3 class="text-lg font-bold mb-2 text-white group-hover:text-teal-400 transition duration-200">9. Brand Equity & Scale</h3>
+            <h3 class="text-lg font-bold mb-2 text-white group-hover:text-rose-400 transition">8. Professional Video Editing</h3>
             <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
-              Design professional portfolios, secure premium sponsorships, structure company frameworks, and grow personal brands.
+              Master professional editing software. Edit cinematic vertical micro-videos, execute transitions, color grade, and capture viewers' eyes.
             </p>
           </div>
-          <div class="flex items-center gap-2 pt-4 border-t border-white/5">
-            <span class="text-[10px] uppercase font-bold text-teal-400 tracking-wider">Level: Master</span>
+          <div class="pt-4 border-t border-white/5 mt-6 text-[10px] text-slate-500 uppercase font-bold tracking-widest">
+            Syllabus: Vertical Editors & Media Buyers
+          </div>
+        </div>
+
+        <!-- Cat 9 -->
+        <div class="luxury-glass p-8 rounded-2xl hover:border-teal-500/40 hover:scale-[1.01] transition duration-300 group flex flex-col justify-between min-h-[300px]">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-teal-500/5 flex items-center justify-center mb-6 group-hover:bg-teal-500/15 border border-teal-500/10 transition">
+              <i data-lucide="palette" class="w-6 h-6 text-teal-400"></i>
+            </div>
+            <h3 class="text-lg font-bold mb-2 text-white group-hover:text-teal-400 transition">9. Graphic Design & Media Creation</h3>
+            <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+              Create gorgeous visual assets, advertisement banners, posters, and corporate social layouts that convert into direct sales.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-white/5 mt-6 text-[10px] text-slate-500 uppercase font-bold tracking-widest">
+            Syllabus: Graphic Designers & Brand Managers
           </div>
         </div>
 
@@ -445,235 +455,244 @@
     </div>
   </section>
 
-  <!-- Hybrid Business Model Flow -->
-  <section class="py-24 bg-gradient-to-b from-transparent to-[#040813]">
+  <!-- Premium 4-Step Ecosystem Lifecycle -->
+  <section class="py-24 bg-[#030308]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="text-center max-w-3xl mx-auto mb-20">
-        <span class="text-xs font-bold text-luxury-emerald uppercase tracking-[0.2em] block mb-2">INTEGRATED COMMERCE</span>
-        <h2 class="text-3xl sm:text-5xl font-bold mb-4 font-serif">A Hybrid Enterprise Model</h2>
-        <p class="text-slate-400">
-          Project Everest combines digital education, affiliate marketing, and network leverage into one high-yielding stream.
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-bold text-emerald uppercase tracking-[0.2em] block mb-2">HYBRID SYSTEM FLOW</span>
+        <h2 class="text-3xl sm:text-5xl font-bold font-serif text-gold-gradient">The Business Model Cycle</h2>
+        <p class="text-slate-400 text-sm">
+          A modern approach bridging active educational masterclasses with passive referral incentives.
         </p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
         
         <!-- Step 1 -->
-        <div class="relative bg-luxury-card/60 p-6.5 rounded-2xl border border-white/5 text-center hover:border-luxury-gold/20 transition duration-300 group">
-          <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-luxury-gold text-luxury-black font-black flex items-center justify-center text-xs shadow-md">
+        <div class="relative luxury-glass p-6.5 rounded-2xl text-center group">
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-gold text-obsidian-deep font-black flex items-center justify-center text-xs shadow-md">
             1
           </div>
           <div class="mb-4 mt-3">
-            <div class="w-12 h-12 rounded-xl bg-luxury-gold/5 border border-luxury-gold/10 flex items-center justify-center mx-auto group-hover:scale-110 transition duration-300">
-              <i data-lucide="shopping-bag" class="w-6 h-6 text-luxury-gold"></i>
-            </div>
+            <i data-lucide="shopping-bag" class="w-8 h-8 text-gold mx-auto group-hover:scale-110 transition duration-300"></i>
           </div>
-          <h4 class="font-bold text-base mb-2 text-white">Select Package</h4>
-          <p class="text-slate-400 text-xs leading-relaxed">
-            Choose an educational bundle designed around your knowledge targets and initial start level.
-          </p>
+          <h4 class="font-bold text-base text-white mb-2">Select Package</h4>
+          <p class="text-slate-400 text-xs">Choose a knowledge bundle matching your business readiness.</p>
         </div>
 
         <!-- Step 2 -->
-        <div class="relative bg-luxury-card/60 p-6.5 rounded-2xl border border-white/5 text-center hover:border-luxury-emerald/20 transition duration-300 group">
-          <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-luxury-emerald text-luxury-black font-black flex items-center justify-center text-xs shadow-md">
+        <div class="relative luxury-glass p-6.5 rounded-2xl text-center group">
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-emerald text-obsidian-deep font-black flex items-center justify-center text-xs shadow-md">
             2
           </div>
           <div class="mb-4 mt-3">
-            <div class="w-12 h-12 rounded-xl bg-luxury-emerald/5 border border-luxury-emerald/10 flex items-center justify-center mx-auto group-hover:scale-110 transition duration-300">
-              <i data-lucide="book-open" class="w-6 h-6 text-luxury-emerald"></i>
-            </div>
+            <i data-lucide="book-open" class="w-8 h-8 text-emerald mx-auto group-hover:scale-110 transition duration-300"></i>
           </div>
-          <h4 class="font-bold text-base mb-2 text-white">Learn & Apply</h4>
-          <p class="text-slate-400 text-xs leading-relaxed">
-            Consume the specialized masterclass syllabi, gain modern credentials, and execute practical systems.
-          </p>
+          <h4 class="font-bold text-base text-white mb-2">Learn & Acquire</h4>
+          <p class="text-slate-400 text-xs">Consume premium video materials and establish practical skill sets.</p>
         </div>
 
         <!-- Step 3 -->
-        <div class="relative bg-luxury-card/60 p-6.5 rounded-2xl border border-white/5 text-center hover:border-blue-400/20 transition duration-300 group">
+        <div class="relative luxury-glass p-6.5 rounded-2xl text-center group">
           <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-blue-500 text-white font-black flex items-center justify-center text-xs shadow-md">
             3
           </div>
           <div class="mb-4 mt-3">
-            <div class="w-12 h-12 rounded-xl bg-blue-500/5 border border-blue-500/10 flex items-center justify-center mx-auto group-hover:scale-110 transition duration-300">
-              <i data-lucide="share-2" class="w-6 h-6 text-blue-400"></i>
-            </div>
+            <i data-lucide="share-2" class="w-8 h-8 text-blue-400 mx-auto group-hover:scale-110 transition duration-300"></i>
           </div>
-          <h4 class="font-bold text-base mb-2 text-white">Recommend & Share</h4>
-          <p class="text-slate-400 text-xs leading-relaxed">
-            Introduce Everest membership bundles to peers, creators, and business builders.
-          </p>
+          <h4 class="font-bold text-base text-white mb-2">Recommend & Invite</h4>
+          <p class="text-slate-400 text-xs">Refer other creators and SME owners using your custom tracking node link.</p>
         </div>
 
         <!-- Step 4 -->
-        <div class="relative bg-luxury-card/60 p-6.5 rounded-2xl border border-white/5 text-center hover:border-pink-400/20 transition duration-300 group">
-          <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-pink-500 text-white font-black flex items-center justify-center text-xs shadow-md">
+        <div class="relative luxury-glass p-6.5 rounded-2xl text-center group">
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-rose-500 text-white font-black flex items-center justify-center text-xs shadow-md">
             4
           </div>
           <div class="mb-4 mt-3">
-            <div class="w-12 h-12 rounded-xl bg-pink-500/5 border border-pink-500/10 flex items-center justify-center mx-auto group-hover:scale-110 transition duration-300">
-              <i data-lucide="wallet" class="w-6 h-6 text-pink-400"></i>
-            </div>
+            <i data-lucide="wallet" class="w-8 h-8 text-rose-400 mx-auto group-hover:scale-110 transition duration-300"></i>
           </div>
-          <h4 class="font-bold text-base mb-2 text-white">Earn Yields</h4>
-          <p class="text-slate-400 text-xs leading-relaxed">
-            Unlock direct marketing payouts, corporate matrix structures, and recurring entertainment royalties.
-          </p>
+          <h4 class="font-bold text-base text-white mb-2">Unlock Rewards</h4>
+          <p class="text-slate-400 text-xs">Receive direct matrix, momentum yields and global bonus distributions.</p>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- Membership Packages Matrix -->
+  <!-- Premium Membership Tiers: 5 Packages (Starter, Premium, Advanced, Professional, Signature) -->
   <section class="py-24 relative overflow-hidden">
-    <div class="absolute top-[30%] left-0 w-[500px] h-[500px] bg-luxury-gold/5 rounded-full filter blur-[150px] pointer-events-none"></div>
+    <div class="absolute top-[20%] left-0 w-[500px] h-[500px] bg-gold/5 rounded-full filter blur-[150px] pointer-events-none"></div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       
-      <!-- Section Intro with Currency Switcher -->
       <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="text-xs font-bold text-luxury-gold uppercase tracking-[0.2em] block mb-2">MEMBERSHIP ACCESS</span>
-        <h2 class="text-3xl sm:text-5xl font-bold mb-4 font-serif">Choose Your Ascent Level</h2>
-        <p class="text-slate-400 text-sm mb-10">
-          Gain access to world-class assets and active partner status. Select your preferred currency below.
+        <span class="text-xs font-black text-gold uppercase tracking-[0.25em] block mb-2">Ecosystem ACCESS LEVELS</span>
+        <h2 class="text-3xl sm:text-5xl font-bold mb-4 font-serif text-gold-gradient">Choose Your Climb Ascent</h2>
+        <p class="text-slate-400 text-sm mb-12">
+          Secure active membership status, access courses, and unlock specialized affiliate bonus streams. Toggle preferred billing below.
         </p>
         
-        <!-- Premium sliding-capsule switcher -->
-        <div class="inline-flex items-center p-1 rounded-full bg-luxury-card border border-white/10 shadow-inner relative">
-          <button id="toggleTHB" onclick="switchCurrency('THB')" class="px-6 py-2.5 rounded-full text-xs font-extrabold transition duration-300 bg-gradient-to-r from-luxury-gold to-yellow-600 text-luxury-black shadow-lg">
+        <!-- Sliding Switcher -->
+        <div class="inline-flex items-center p-1.5 rounded-full bg-obsidian-card border border-gold/20 shadow-inner">
+          <button id="toggleTHB" onclick="switchCurrency('THB')" class="px-6 py-3 rounded-full text-xs font-extrabold transition duration-300 bg-gradient-to-r from-gold to-gold-dark text-obsidian-deep shadow-lg">
             Thai Baht (THB)
           </button>
-          <button id="toggleUSDT" onclick="switchCurrency('USDT')" class="px-6 py-2.5 rounded-full text-xs font-extrabold transition duration-300 text-slate-400 hover:text-white">
-            USDT Tether (Crypto)
+          <button id="toggleUSDT" onclick="switchCurrency('USDT')" class="px-6 py-3 rounded-full text-xs font-extrabold transition duration-300 text-slate-400 hover:text-white">
+            USDT (Crypto Base)
           </button>
         </div>
       </div>
 
-      <!-- Packages Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+      <!-- Grid of 5 Packages -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-16 items-stretch">
         
-        <!-- Starter Package -->
-        <div class="glass-effect rounded-2xl border border-white/5 overflow-hidden flex flex-col justify-between hover:scale-[1.02] hover:border-luxury-emerald/30 transition duration-300 group">
-          <div class="p-6.5 border-b border-white/5 bg-white/[0.01]">
-            <div class="flex items-center justify-between mb-4">
-              <span class="text-[10px] font-black uppercase tracking-widest text-luxury-emerald">Starter Tier</span>
-              <span class="px-2.5 py-1 rounded-full bg-luxury-emerald/10 text-luxury-emerald text-[9px] font-extrabold uppercase tracking-wide">🟢 Basic Access</span>
+        <!-- 1. Starter Tier -->
+        <div class="luxury-glass rounded-2xl overflow-hidden flex flex-col justify-between hover:scale-[1.02] hover:border-emerald/40 transition duration-300 group">
+          <div class="p-5 border-b border-white/5 bg-white/[0.01]">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[9px] font-black uppercase tracking-widest text-emerald">Starter</span>
+              <span class="px-2 py-0.5 rounded bg-emerald/10 text-emerald text-[8px] font-extrabold uppercase">🟢 Entry</span>
             </div>
-            <div class="mb-4">
-              <span class="text-4xl font-extrabold text-white price-display" data-thb="535" data-usdt="18">535</span>
-              <span class="text-xs text-slate-400 text-unit"> THB</span>
-              <span class="block text-[10px] text-slate-500 mt-1 font-semibold tracking-wide tax-label">+ VAT</span>
+            <div class="mb-3">
+              <span class="text-3xl font-black text-white price-display" data-thb="551" data-usdt="19">551</span>
+              <span class="text-[10px] text-slate-400 text-unit"> THB</span>
+              <span class="block text-[8px] text-slate-500 mt-0.5 font-bold uppercase tracking-wide tax-label">+ VAT</span>
             </div>
-            <p class="text-slate-400 text-xs">A comprehensive foundation to initiate online skill building.</p>
+            <p class="text-slate-400 text-[11px] leading-relaxed">For beginners exploring digital product foundations.</p>
           </div>
-          <div class="p-6.5 space-y-4 flex-grow">
-            <ul class="space-y-3 text-xs text-slate-300">
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-luxury-emerald"></i> English & Facebook Silos</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-luxury-emerald"></i> AI Prompt Frameworks</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-luxury-emerald"></i> Basic Personal Affiliate link</li>
+          <div class="p-5 space-y-3 flex-grow text-xs text-slate-300">
+            <ul class="space-y-2">
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald"></i> Learn basics</li>
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald"></i> System access</li>
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald"></i> Affiliate tracking</li>
             </ul>
           </div>
-          <div class="p-6 bg-white/[0.01] border-t border-white/5 text-center">
-            <span class="text-[10px] text-slate-500 uppercase tracking-wider">Perfect for Beginners</span>
+          <div class="p-4 bg-white/[0.01] border-t border-white/5 text-center text-[9px] text-slate-500 uppercase tracking-wider font-extrabold">
+            Starter Level Node
           </div>
         </div>
 
-        <!-- Premium Package -->
-        <div class="glass-effect rounded-2xl border border-white/5 overflow-hidden flex flex-col justify-between hover:scale-[1.02] hover:border-blue-400/30 transition duration-300 group">
-          <div class="p-6.5 border-b border-white/5 bg-white/[0.01]">
-            <div class="flex items-center justify-between mb-4">
-              <span class="text-[10px] font-black uppercase tracking-widest text-blue-400">Premium Tier</span>
-              <span class="px-2.5 py-1 rounded-full bg-blue-500/10 text-blue-400 text-[9px] font-extrabold uppercase tracking-wide">🔵 POPULAR</span>
+        <!-- 2. Premium Tier -->
+        <div class="luxury-glass rounded-2xl overflow-hidden flex flex-col justify-between hover:scale-[1.02] hover:border-blue-400/40 transition duration-300 group">
+          <div class="p-5 border-b border-white/5 bg-white/[0.01]">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[9px] font-black uppercase tracking-widest text-blue-400">Premium</span>
+              <span class="px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 text-[8px] font-extrabold uppercase">🔵 Popular</span>
             </div>
-            <div class="mb-4">
-              <span class="text-4xl font-extrabold text-white price-display" data-thb="1,605" data-usdt="55">1,605</span>
-              <span class="text-xs text-slate-400 text-unit"> THB</span>
-              <span class="block text-[10px] text-slate-500 mt-1 font-semibold tracking-wide tax-label">+ VAT</span>
+            <div class="mb-3">
+              <span class="text-3xl font-black text-white price-display" data-thb="1,624" data-usdt="56">1,624</span>
+              <span class="text-[10px] text-slate-400 text-unit"> THB</span>
+              <span class="block text-[8px] text-slate-500 mt-0.5 font-bold uppercase tracking-wide tax-label">+ VAT</span>
             </div>
-            <p class="text-slate-400 text-xs">Designed for active creators who want more distribution yield.</p>
+            <p class="text-slate-400 text-[11px] leading-relaxed">Develop skills and access broader digital insights.</p>
           </div>
-          <div class="p-6.5 space-y-4 flex-grow">
-            <ul class="space-y-3 text-xs text-slate-300">
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-blue-400"></i> Full TikTok & Ad Syllabus</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-blue-400"></i> Advanced Digital Marketing</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-blue-400"></i> 1x Direct Multiplier Payouts</li>
+          <div class="p-5 space-y-3 flex-grow text-xs text-slate-300">
+            <ul class="space-y-2">
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-blue-400"></i> Advanced skills</li>
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-blue-400"></i> Expanded courses</li>
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-blue-400"></i> Expanded matrix slots</li>
             </ul>
           </div>
-          <div class="p-6 bg-white/[0.01] border-t border-white/5 text-center">
-            <span class="text-[10px] text-slate-500 uppercase tracking-wider">Most Common Choice</span>
+          <div class="p-4 bg-white/[0.01] border-t border-white/5 text-center text-[9px] text-slate-500 uppercase tracking-wider font-extrabold">
+            Standard Growth Tier
           </div>
         </div>
 
-        <!-- Advanced Package -->
-        <div class="glass-effect rounded-2xl border border-white/5 overflow-hidden flex flex-col justify-between hover:scale-[1.02] hover:border-purple-400/30 transition duration-300 group">
-          <div class="p-6.5 border-b border-white/5 bg-white/[0.01]">
-            <div class="flex items-center justify-between mb-4">
-              <span class="text-[10px] font-black uppercase tracking-widest text-purple-400">Advanced Tier</span>
-              <span class="px-2.5 py-1 rounded-full bg-purple-500/10 text-purple-400 text-[9px] font-extrabold uppercase tracking-wide">🟣 Professional</span>
+        <!-- 3. Advanced Tier -->
+        <div class="luxury-glass rounded-2xl overflow-hidden flex flex-col justify-between hover:scale-[1.02] hover:border-purple-400/40 transition duration-300 group">
+          <div class="p-5 border-b border-white/5 bg-white/[0.01]">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[9px] font-black uppercase tracking-widest text-purple-400">Advanced</span>
+              <span class="px-2 py-0.5 rounded bg-purple-500/10 text-purple-400 text-[8px] font-extrabold uppercase">🟣 Pro Skillset</span>
             </div>
-            <div class="mb-4">
-              <span class="text-4xl font-extrabold text-white price-display" data-thb="3,210" data-usdt="111">3,210</span>
-              <span class="text-xs text-slate-400 text-unit"> THB</span>
-              <span class="block text-[10px] text-slate-500 mt-1 font-semibold tracking-wide tax-label">+ VAT</span>
+            <div class="mb-3">
+              <span class="text-3xl font-black text-white price-display" data-thb="3,219" data-usdt="111">3,219</span>
+              <span class="text-[10px] text-slate-400 text-unit"> THB</span>
+              <span class="block text-[8px] text-slate-500 mt-0.5 font-bold uppercase tracking-wide tax-label">+ VAT</span>
             </div>
-            <p class="text-slate-400 text-xs">For established online sellers looking to automate networks.</p>
+            <p class="text-slate-400 text-[11px] leading-relaxed">Designed for active creators dedicated to mastery.</p>
           </div>
-          <div class="p-6.5 space-y-4 flex-grow">
-            <ul class="space-y-3 text-xs text-slate-300">
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-purple-400"></i> Culinary & Multi-Language</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-purple-400"></i> Advanced AI Automated Flows</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-purple-400"></i> Expanded commission tier slots</li>
+          <div class="p-5 space-y-3 flex-grow text-xs text-slate-300">
+            <ul class="space-y-2">
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-purple-400"></i> Specialized tactics</li>
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-purple-400"></i> Automated AI utility</li>
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-purple-400"></i> Higher payout ratio</li>
             </ul>
           </div>
-          <div class="p-6 bg-white/[0.01] border-t border-white/5 text-center">
-            <span class="text-[10px] text-slate-500 uppercase tracking-wider">Engineered for Scale</span>
+          <div class="p-4 bg-white/[0.01] border-t border-white/5 text-center text-[9px] text-slate-500 uppercase tracking-wider font-extrabold">
+            Experienced Marketers
           </div>
         </div>
 
-        <!-- Signature Package (Highlighted Crown Jewel) -->
-        <div class="glass-effect rounded-2xl border-2 border-luxury-gold overflow-hidden flex flex-col justify-between hover:scale-[1.03] transition duration-300 relative shadow-2xl shadow-luxury-gold/5 bg-gradient-to-b from-luxury-card to-luxury-black/90">
-          <div class="absolute top-0 right-0 bg-luxury-gold text-luxury-black text-[9px] font-black uppercase py-1 px-4 rounded-bl-lg tracking-widest">
+        <!-- 4. Professional Tier -->
+        <div class="luxury-glass rounded-2xl overflow-hidden flex flex-col justify-between hover:scale-[1.02] hover:border-rose-400/40 transition duration-300 group">
+          <div class="p-5 border-b border-white/5 bg-white/[0.01]">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[9px] font-black uppercase tracking-widest text-rose-400">Professional</span>
+              <span class="px-2 py-0.5 rounded bg-rose-500/10 text-rose-400 text-[8px] font-extrabold uppercase">🔴 Masterclass</span>
+            </div>
+            <div class="mb-3">
+              <span class="text-3xl font-black text-white price-display" data-thb="5,365" data-usdt="185">5,365</span>
+              <span class="text-[10px] text-slate-400 text-unit"> THB</span>
+              <span class="block text-[8px] text-slate-500 mt-0.5 font-bold uppercase tracking-wide tax-label">+ VAT</span>
+            </div>
+            <p class="text-slate-400 text-[11px] leading-relaxed">Upgrade to enterprise-level mechanics and setups.</p>
+          </div>
+          <div class="p-5 space-y-3 flex-grow text-xs text-slate-300">
+            <ul class="space-y-2">
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-rose-400"></i> Advanced cooking & ads</li>
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-rose-400"></i> Expanded video suites</li>
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-rose-400"></i> VIP corporate incentives</li>
+            </ul>
+          </div>
+          <div class="p-4 bg-white/[0.01] border-t border-white/5 text-center text-[9px] text-slate-500 uppercase tracking-wider font-extrabold">
+            Executive Tier System
+          </div>
+        </div>
+
+        <!-- 5. Signature Tier (Featured Crown Jewel) -->
+        <div class="luxury-glass rounded-2xl overflow-hidden flex flex-col justify-between hover:scale-[1.04] transition duration-300 relative border-2 border-gold gold-radial-glow bg-gradient-to-b from-obsidian-card to-black">
+          <div class="absolute top-0 right-0 bg-gold text-obsidian-deep text-[8px] font-black uppercase py-0.5 px-3 rounded-bl-lg tracking-widest">
             ELITE CHOICE
           </div>
-          <div class="p-6.5 border-b border-white/5 bg-luxury-gold/5">
-            <div class="flex items-center justify-between mb-4">
-              <span class="text-[10px] font-black uppercase tracking-widest text-luxury-gold">Signature Tier</span>
-              <span class="px-2.5 py-1 rounded-full bg-luxury-gold/25 text-luxury-gold text-[9px] font-extrabold uppercase tracking-widest">👑 SIGNATURE</span>
+          <div class="p-5 border-b border-white/5 bg-gold/5">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[9px] font-black uppercase tracking-widest text-gold">Signature</span>
+              <span class="px-2 py-0.5 rounded bg-gold/25 text-gold text-[8px] font-extrabold uppercase tracking-widest">👑 SIGNATURE</span>
             </div>
-            <div class="mb-4">
-              <span class="text-4xl font-black text-luxury-gold price-display" data-thb="7,490" data-usdt="258">7,490</span>
-              <span class="text-xs text-slate-300 text-unit"> THB</span>
-              <span class="block text-[10px] text-luxury-emerald mt-1 font-bold tracking-wide tax-label">VAT Included (net)</span>
+            <div class="mb-3">
+              <span class="text-3xl font-black text-gold price-display font-serif" data-thb="7,511" data-usdt="259">7,511</span>
+              <span class="text-[10px] text-slate-300 text-unit"> THB</span>
+              <span class="block text-[8px] text-emerald mt-0.5 font-bold uppercase tracking-wide tax-label">VAT Included (net)</span>
             </div>
-            <p class="text-slate-300 text-xs">Unrestricted, perpetual lifetime access to all Everest ecosystems.</p>
+            <p class="text-slate-300 text-[11px] leading-relaxed">Perpetual, complete unrestricted access to all current and future portals.</p>
           </div>
-          <div class="p-6.5 space-y-4 flex-grow">
-            <ul class="space-y-3 text-xs text-slate-200">
-              <li class="flex items-center gap-2 font-medium"><i data-lucide="crown" class="w-4 h-4 text-luxury-gold"></i> All 9 Academy Categories</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-luxury-gold"></i> Infinite Referral Yield rights</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-luxury-gold"></i> Dynamic VIP Executive Bonus</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-luxury-gold"></i> Priority Support & Materials</li>
+          <div class="p-5 space-y-3 flex-grow text-xs text-slate-200">
+            <ul class="space-y-2">
+              <li class="flex items-center gap-1.5 font-medium"><i data-lucide="crown" class="w-3.5 h-3.5 text-gold animate-bounce"></i> All 9 Portfolios</li>
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-gold"></i> Max Momentum matching</li>
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-gold"></i> Infinite matrix cycles</li>
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-gold"></i> Priority direct support</li>
             </ul>
           </div>
-          <div class="p-6 bg-luxury-gold/5 border-t border-white/5 text-center">
-            <span class="text-[10px] text-luxury-gold uppercase tracking-wider font-extrabold">Ultimate Value Package</span>
+          <div class="p-4 bg-gold/5 border-t border-white/5 text-center text-[9px] text-gold uppercase tracking-wider font-extrabold">
+            Ultimate Wealth Formula
           </div>
         </div>
 
       </div>
 
-      <!-- High-End Crypto Disclosure notice -->
-      <div class="glass-effect p-6.5 rounded-2xl border border-yellow-600/20 max-w-3xl mx-auto flex gap-4 items-start shadow-lg">
-        <div class="w-10 h-10 rounded-full bg-yellow-600/15 border border-yellow-600/30 flex items-center justify-center flex-shrink-0">
-          <i data-lucide="alert-circle" class="w-5 h-5 text-luxury-gold"></i>
+      <!-- USDT Disclaimer Details -->
+      <div class="luxury-glass p-6 rounded-2xl border border-gold/20 max-w-4xl mx-auto flex gap-4 items-start shadow-xl">
+        <div class="w-12 h-12 rounded-full bg-gold/10 border border-gold/30 flex items-center justify-center flex-shrink-0">
+          <i data-lucide="help-circle" class="w-6 h-6 text-gold"></i>
         </div>
-        <div class="space-y-1">
-          <h4 class="font-bold text-slate-200 text-sm">Crypto Settlement Rate Information (USDT)</h4>
+        <div class="space-y-1.5">
+          <h4 class="font-bold text-slate-200 text-sm">Official USDT Pricing Notice</h4>
           <p class="text-xs text-slate-400 leading-relaxed">
-            Equivalent prices in USDT Tether are processed under a fixed system promotional rate of <strong>1 USDT = 29 THB</strong>. This internal rate factors in multi-node payment gateways, transaction gas fees, and company management costs. Please consult your personal Sponsor if you require support during token transactions.
+            Ecosystem package rates are native to **USDT Cryptocurrency** standards. The equivalent prices displayed in Thai Baht (THB) are modeled on our fixed promotional index of **1 USDT = 29 THB** factoring in payment gateways and system gas/processing costs. Please note that package rates are adjusted by approximately **5-10%** periodically based on network variables. Verify the final settlement amount on checkout or ask your Sponsor.
           </p>
         </div>
       </div>
@@ -681,95 +700,95 @@
     </div>
   </section>
 
-  <!-- Compensation Pathways (6 Strategic Silos) -->
-  <section class="py-24 bg-[#040813]/60 border-y border-white/5 relative">
+  <!-- Compounding Payout Matrix Incentives -->
+  <section class="py-24 bg-obsidian-deep/80 border-y border-gold/10 relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="text-xs font-bold text-luxury-gold uppercase tracking-[0.2em] block mb-2">REVENUE PILLARS</span>
-        <h2 class="text-3xl sm:text-5xl font-bold mb-4 font-serif">6 Strategic Income Avenues</h2>
+      <div class="text-center max-w-3xl mx-auto mb-20">
+        <span class="text-xs font-black text-gold uppercase tracking-[0.3em] block mb-2">REVENUE SYSTEMS</span>
+        <h2 class="text-3xl sm:text-5xl font-bold font-serif text-gold-gradient">Compounding Revenue Structures</h2>
         <p class="text-slate-400 text-sm">
-          Optimize your scale and secure compounding rewards backed by transparent, code-governed payouts.
+          A secure, mathematically driven structure giving builders direct reward pipelines.
         </p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         
         <!-- Pillar 1 -->
-        <div class="p-6.5 rounded-2xl bg-luxury-card/50 border border-white/5 hover:border-luxury-gold/30 hover:bg-luxury-card transition duration-300">
-          <div class="flex items-center gap-3.5 mb-4">
-            <div class="w-10 h-10 rounded-lg bg-yellow-500/10 flex items-center justify-center text-yellow-400">
+        <div class="p-6.5 rounded-2xl bg-obsidian-card border border-white/5 hover:border-gold/30 transition duration-300">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-11 h-11 rounded-xl bg-gold/10 border border-gold/20 flex items-center justify-center text-gold">
               <i data-lucide="gift" class="w-5 h-5"></i>
             </div>
-            <h4 class="font-bold text-white text-base">1. Promotion Reward</h4>
+            <h4 class="font-bold text-white text-base">Promotion Rewards (Up to 30%)</h4>
           </div>
           <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
-            Earn instant, high-tier direct commissions when peers register under your personal referral gateway.
+            Receive rewarding instant referral bonuses of up to 30% from package referrals, governed by company terms and conditions.
           </p>
         </div>
 
         <!-- Pillar 2 -->
-        <div class="p-6.5 rounded-2xl bg-luxury-card/50 border border-white/5 hover:border-teal-400/30 hover:bg-luxury-card transition duration-300">
-          <div class="flex items-center gap-3.5 mb-4">
-            <div class="w-10 h-10 rounded-lg bg-teal-500/10 flex items-center justify-center text-teal-400">
-              <i data-lucide="network" class="w-5 h-5"></i>
+        <div class="p-6.5 rounded-2xl bg-obsidian-card border border-white/5 hover:border-emerald/30 transition duration-300">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-11 h-11 rounded-xl bg-emerald/10 border border-emerald/20 flex items-center justify-center text-emerald">
+              <i data-lucide="grid" class="w-5 h-5"></i>
             </div>
-            <h4 class="font-bold text-white text-base">2. Auto-Matrix Commissions</h4>
+            <h4 class="font-bold text-white text-base">Auto-Matrix Structures</h4>
           </div>
           <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
-            Gain compounding structural yields calculated up to 10 levels deep as the company global pipeline grows.
+            Consists of 2 levels, 2 lines, and 6 positions. Level 1 pays 10% (7% Reborn allocation). Level 2 pays 50% (50% Reborn allocation) for rapid cycle generation.
           </p>
         </div>
 
         <!-- Pillar 3 -->
-        <div class="p-6.5 rounded-2xl bg-luxury-card/50 border border-white/5 hover:border-pink-500/30 hover:bg-luxury-card transition duration-300">
-          <div class="flex items-center gap-3.5 mb-4">
-            <div class="w-10 h-10 rounded-lg bg-pink-500/10 flex items-center justify-center text-pink-400">
+        <div class="p-6.5 rounded-2xl bg-obsidian-card border border-white/5 hover:border-purple-400/30 transition duration-300">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-11 h-11 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400">
               <i data-lucide="rotate-ccw" class="w-5 h-5"></i>
             </div>
-            <h4 class="font-bold text-white text-base">3. Reborn Recurring System</h4>
+            <h4 class="font-bold text-white text-base">Reborn Recurrent Engines</h4>
           </div>
           <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
-            Automatic recycling triggers place you in new active matrix pathways, creating endless passive loops.
+            Innovative recycling mechanics giving you the automatic opportunity to re-enter new matrix pathways, keeping growth prospects recurring.
           </p>
         </div>
 
         <!-- Pillar 4 -->
-        <div class="p-6.5 rounded-2xl bg-luxury-card/50 border border-white/5 hover:border-purple-500/30 hover:bg-luxury-card transition duration-300">
-          <div class="flex items-center gap-3.5 mb-4">
-            <div class="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-400">
-              <i data-lucide="zap" class="w-5 h-5"></i>
+        <div class="p-6.5 rounded-2xl bg-obsidian-card border border-white/5 hover:border-blue-400/30 transition duration-300">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-11 h-11 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400">
+              <i data-lucide="trending-up" class="w-5 h-5"></i>
             </div>
-            <h4 class="font-bold text-white text-base">4. Momentum Accelerator</h4>
+            <h4 class="font-bold text-white text-base">Team Momentum Payouts</h4>
           </div>
           <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
-            Earn extra performance bonuses by assisting your direct affiliates in building their own deep organizations.
+            Matrix income split: 70% to Original Member, 20% to Sponsor, and 10% to Sponsor's Sponsor. Encourages leaders to actively support downlines.
           </p>
         </div>
 
         <!-- Pillar 5 -->
-        <div class="p-6.5 rounded-2xl bg-luxury-card/50 border border-white/5 hover:border-blue-500/30 hover:bg-luxury-card transition duration-300">
-          <div class="flex items-center gap-3.5 mb-4">
-            <div class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400">
-              <i data-lucide="globe-2" class="w-5 h-5"></i>
+        <div class="p-6.5 rounded-2xl bg-obsidian-card border border-white/5 hover:border-rose-400/30 transition duration-300">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-11 h-11 rounded-xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-rose-400">
+              <i data-lucide="award" class="w-5 h-5"></i>
             </div>
-            <h4 class="font-bold text-white text-base">5. Global Revenue Pool</h4>
+            <h4 class="font-bold text-white text-base">Promotion All Sales (10 Levels Deep)</h4>
           </div>
           <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
-            Access dedicated corporate shares calculated from total global product transactions of Project Everest.
+            Earn 1% per position under your matrix structure across 2 lines and up to 10 levels deep (total 2,048 positions) paid out at the end of each month.
           </p>
         </div>
 
         <!-- Pillar 6 -->
-        <div class="p-6.5 rounded-2xl bg-luxury-card/50 border border-white/5 hover:border-luxury-emerald/30 hover:bg-luxury-card transition duration-300">
-          <div class="flex items-center gap-3.5 mb-4">
-            <div class="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center text-luxury-emerald">
+        <div class="p-6.5 rounded-2xl bg-obsidian-card border border-white/5 hover:border-teal-400/30 transition duration-300">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-11 h-11 rounded-xl bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-teal-400">
               <i data-lucide="percent" class="w-5 h-5"></i>
             </div>
-            <h4 class="font-bold text-white text-base">6. Retail & Streaming Commissions</h4>
+            <h4 class="font-bold text-white text-base">Direct Retail Commissions</h4>
           </div>
           <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
-            Secure consistent percentages from commercial content subscriptions and individual digital tool sales.
+            Aquire steady residual income shares generated from targeted product recommendations and entertainment course packages.
           </p>
         </div>
 
@@ -777,67 +796,67 @@
     </div>
   </section>
 
-  <!-- The Sponsor Card (Sponsor Box) -->
+  <!-- Ultra-Premium VIP Sponsor Card Section -->
   <section id="sponsor-box" class="py-24 relative overflow-hidden">
     <!-- Spotlight glowing aura behind sponsor card -->
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-luxury-gold/10 rounded-full filter blur-[120px] pointer-events-none"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gold/10 rounded-full filter blur-[150px] pointer-events-none"></div>
 
     <div class="max-w-xl mx-auto px-4 relative z-10">
       
       <div class="relative">
         <!-- Glowing gradient ring wrapping the entire sponsor box -->
-        <div class="absolute -inset-1.5 rounded-3xl bg-gradient-to-r from-luxury-gold via-yellow-400 to-luxury-emerald opacity-25 blur-xl"></div>
+        <div class="absolute -inset-1.5 rounded-3xl bg-gradient-to-r from-gold via-yellow-300 to-emerald opacity-30 blur-2xl"></div>
         
-        <div class="relative glass-effect rounded-3xl p-8 sm:p-10 border border-white/10 text-center shadow-2xl">
+        <div class="relative luxury-glass rounded-3xl p-8 sm:p-12 border-2 border-gold/30 text-center shadow-2xl gold-radial-glow">
           
-          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-luxury-emerald/10 text-luxury-emerald border border-luxury-emerald/20 text-[10px] font-bold uppercase tracking-widest mb-8">
-            <span class="w-2 h-2 rounded-full bg-luxury-emerald animate-ping"></span> Your Verified Partner
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald/10 text-emerald border border-emerald/25 text-[10px] font-bold uppercase tracking-[0.2em] mb-10">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald animate-ping"></span> Your Verified Partner
           </div>
 
           <!-- Sponsor Profile Image & Animated Orbit -->
-          <div class="relative w-36 h-36 mx-auto mb-6">
-            <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-luxury-gold via-yellow-200 to-luxury-emerald p-1 animate-spin-slow">
-              <div class="w-full h-full bg-luxury-black rounded-full"></div>
+          <div class="relative w-40 h-40 mx-auto mb-8">
+            <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-gold via-yellow-200 to-emerald p-1.5 animate-spin-slow">
+              <div class="w-full h-full bg-obsidian-deep rounded-full"></div>
             </div>
             <!-- Glow background effect inside the orbit -->
-            <div class="absolute inset-[3px] bg-gradient-to-tr from-luxury-gold/20 to-luxury-emerald/20 rounded-full filter blur-[4px]"></div>
+            <div class="absolute inset-[4px] bg-gradient-to-tr from-gold/25 to-emerald/25 rounded-full filter blur-[6px]"></div>
             
             <img 
               src="https://raw.githubusercontent.com/givergroup/everest-team-web/refs/heads/main/367f0fae-f7df-4ec6-b59f-d02ee0cddc35.png" 
               alt="Sponsor Profile Image" 
-              class="absolute inset-[6px] w-[132px] h-[132px] rounded-full object-cover shadow-2xl border border-white/10"
+              class="absolute inset-[8px] w-[144px] h-[144px] rounded-full object-cover shadow-2xl border border-white/10"
             >
           </div>
 
           <!-- Section Headline -->
-          <h3 class="text-3xl font-serif font-bold mb-1 bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">Your Sponsor</h3>
-          <p class="text-slate-400 text-xs tracking-wider uppercase mb-8">Exclusive VIP Consultation</p>
+          <h3 class="text-4xl font-serif font-black mb-1 bg-gradient-to-r from-white via-gold-light to-gold bg-clip-text text-transparent">Your Sponsor</h3>
+          <p class="text-slate-400 text-xs tracking-[0.25em] uppercase mb-10">Exclusive VIP Business Partner Consultation</p>
           
           <!-- Detailed Info Block -->
-          <div class="space-y-4 my-8 bg-white/[0.02] py-5 px-6 rounded-2xl border border-white/5 text-left">
-            <div class="flex items-center justify-between border-b border-white/5 pb-3.5">
-              <span class="text-[10px] text-slate-400 uppercase tracking-widest font-extrabold flex items-center gap-2"><i data-lucide="user" class="w-4 h-4 text-luxury-gold"></i> Name</span>
-              <span id="sponsorName" class="text-sm sm:text-base font-bold text-white tracking-wide">Loading...</span>
+          <div class="space-y-4 my-8 bg-white/[0.01] py-6 px-8 rounded-2xl border border-gold/15 text-left">
+            <div class="flex items-center justify-between border-b border-white/5 pb-4">
+              <span class="text-xs text-slate-400 uppercase tracking-widest font-bold flex items-center gap-2.5"><i data-lucide="user" class="w-4.5 h-4.5 text-gold"></i> Name</span>
+              <span id="sponsorName" class="text-base font-black text-white tracking-wide">Loading...</span>
             </div>
             <div class="flex items-center justify-between">
-              <span class="text-[10px] text-slate-400 uppercase tracking-widest font-extrabold flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4 text-luxury-emerald"></i> Phone</span>
-              <span id="sponsorPhone" class="text-sm sm:text-base font-bold text-white tracking-wide">Loading...</span>
+              <span class="text-xs text-slate-400 uppercase tracking-widest font-bold flex items-center gap-2.5"><i data-lucide="phone" class="w-4.5 h-4.5 text-emerald"></i> Phone</span>
+              <span id="sponsorPhone" class="text-base font-black text-white tracking-wide">Loading...</span>
             </div>
           </div>
 
-          <!-- Buttons CTAs -->
+          <!-- CTA buttons -->
           <div class="space-y-4">
-            <a id="lineBtn" href="#" class="w-full py-4.5 rounded-xl bg-gradient-to-r from-luxury-emerald to-luxury-emeraldDark text-white font-extrabold text-xs sm:text-sm tracking-wider uppercase transition duration-300 hover:scale-[1.01] flex items-center justify-center gap-2.5 shadow-lg shadow-luxury-emerald/10 shimmer-btn">
-              <i data-lucide="message-square" class="w-5 h-5"></i> Contact Sponsor on LINE
+            <a id="lineBtn" href="#" class="w-full py-5 rounded-xl bg-gradient-to-r from-emerald to-emerald-dark hover:from-emerald-light hover:to-emerald text-white font-black text-xs sm:text-sm tracking-wider uppercase transition duration-300 hover:scale-[1.01] flex items-center justify-center gap-2.5 shadow-lg shadow-emerald/20 shimmer-active">
+              <i data-lucide="message-square" class="w-5.5 h-5.5"></i> Contact Sponsor on LINE
             </a>
             
-            <a id="registerBtn" href="#" class="w-full py-4.5 rounded-xl bg-gradient-to-r from-luxury-gold to-yellow-600 text-luxury-black font-extrabold text-xs sm:text-sm tracking-wider uppercase transition duration-300 hover:scale-[1.01] flex items-center justify-center gap-2.5 shadow-lg shadow-luxury-gold/10">
-              <i data-lucide="user-plus" class="w-5 h-5"></i> Register / Get More Information
+            <a id="registerBtn" href="#" class="w-full py-5 rounded-xl bg-gradient-to-r from-gold via-yellow-500 to-gold-dark hover:from-yellow-400 hover:to-gold text-obsidian-deep font-black text-xs sm:text-sm tracking-wider uppercase transition duration-300 hover:scale-[1.01] flex items-center justify-center gap-2.5 shadow-lg shadow-gold/20">
+              <i data-lucide="user-plus" class="w-5.5 h-5.5"></i> Register / Get More Information
             </a>
 
-            <!-- Toggle back to Thai Button -->
-            <div class="pt-6 flex justify-center border-t border-white/5 mt-6">
-              <a id="thaiBtn" href="#" class="inline-flex items-center gap-2 text-xs text-slate-400 hover:text-luxury-gold font-semibold transition duration-300 tracking-wider uppercase">
+            <!-- Toggle Language switch link -->
+            <div class="pt-8 flex justify-center border-t border-white/5 mt-8">
+              <a id="thaiBtn" href="#" class="inline-flex items-center gap-2 text-xs text-slate-400 hover:text-gold font-bold transition duration-300 tracking-widest uppercase">
                 <span>🇹🇭</span> SWITCH TO THAI VERSION
               </a>
             </div>
@@ -850,33 +869,33 @@
   </section>
 
   <!-- Legal & Warnings Disclaimer -->
-  <section class="py-12 bg-[#02040a]/90 text-center border-t border-white/5 relative z-10">
+  <section class="py-16 bg-black text-center border-t border-white/5 relative z-10">
     <div class="max-w-4xl mx-auto px-4 sm:px-6">
-      <h5 class="text-xs font-black uppercase tracking-[0.25em] text-slate-400 mb-3.5 flex items-center justify-center gap-2">
-        <i data-lucide="shield-alert" class="w-4 h-4 text-yellow-500"></i> Legal & Earnings Disclaimer
+      <h5 class="text-xs font-black uppercase tracking-[0.25em] text-slate-400 mb-4 flex items-center justify-center gap-2">
+        <i data-lucide="shield-alert" class="w-4.5 h-4.5 text-gold animate-pulse"></i> Legal & Earnings Disclaimer
       </h5>
       <p class="text-[11px] text-slate-500 leading-relaxed max-w-3xl mx-auto font-light">
-        Financial and professional success with Project Everest depends on individual commitment, persistence, active learning, and personal marketing aptitude. We represent no absolute promises or guarantee of individual income, profit pools, or recurrent benefits. System payouts are governed strictly by authentic educational asset consumption, verifiable direct referrals, and legal commercial retail sales.
+        Project Everest is not a guarantee of income, profit, or future results. Individual success depends on personal learning commitment, application, consistency, effort, and individual marketing aptitude. System payouts are strictly governed by active digital content subscriptions, direct referral rewards, and corporate compensation structures.
       </p>
     </div>
   </section>
 
   <!-- Footnotes Footer -->
-  <footer class="py-8 bg-[#010206] text-center border-t border-white/5 text-[11px] text-slate-600 relative z-10 font-medium">
+  <footer class="py-10 bg-black text-center border-t border-white/5 text-[11px] text-slate-600 relative z-10 font-bold tracking-widest">
     <div class="max-w-7xl mx-auto px-4">
-      <p class="mb-1">© 2026 Project Everest. Elite Sales Team Digital Portal. All rights reserved.</p>
-      <p>Powered by Everest Marketing System Node Logic</p>
+      <p class="mb-2">© 2026 Project Everest. Elite Sales Team Digital Portal. All rights reserved.</p>
+      <p class="text-gold/50">Powered by Everest Marketing System Node Core</p>
     </div>
   </footer>
 
-  <!-- Script logics -->
+  <!-- Premium Script Logics -->
   <script>
-    // Initialize Lucide Icons
+    // Initialize icons
     lucide.createIcons();
 
     /**
-     * Resolves the proper relative paths for Sandboxed structures (like window.location 'blob')
-     * @param {string} relativePath - Relative file path (e.g., "../data/members.json")
+     * Resolves the proper relative paths for preview setups
+     * @param {string} relativePath - Relative file path (e.g. "../data/members.json")
      * @returns {string} - Resolved absolute URL path
      */
     function resolveURL(relativePath) {
@@ -911,11 +930,11 @@
       }
     }
 
-    // 1. Dynamic Member Fetch System (Query ref parser)
+    // 1. Dynamic Referral System (Query parser)
     const params = new URLSearchParams(window.location.search);
     const ref = params.get("ref") || "coachpaul";
 
-    // Premium robust fallback parameters
+    // Premium fallbacks
     const fallbackMembers = {
       "coachpaul": {
         "name_en": "Coach Paul",
@@ -925,7 +944,7 @@
       },
       "admin": {
         "name_en": "Everest Administrator",
-        "phone": "Contact via LINE",
+        "phone": "Contact via LINE Support",
         "line_url": "https://line.me",
         "register_link": "#"
       }
@@ -937,12 +956,13 @@
       document.getElementById("lineBtn").href = member.line_url || "#";
       document.getElementById("registerBtn").href = member.register_link || "#";
       
+      // Update link targets
       const thaiPath = resolveURL("../th/?ref=" + ref);
       document.getElementById("thaiBtn").href = thaiPath;
       document.getElementById("thaiBtnHeader").href = thaiPath;
     }
 
-    // Resolve URL target path
+    // Resolve JSON path and fetch
     const membersDataUrl = resolveURL("../data/members.json");
 
     fetch(membersDataUrl)
@@ -962,7 +982,7 @@
         applyMemberData(member);
       });
 
-    // 2. Pricing Switch System
+    // 2. Pricing Exchange Conversion Formula (Fixed rate: 1 USDT = 29 THB)
     function switchCurrency(type) {
       const btnTHB = document.getElementById('toggleTHB');
       const btnUSDT = document.getElementById('toggleUSDT');
@@ -971,9 +991,9 @@
       const taxLabels = document.querySelectorAll('.tax-label');
 
       if (type === 'THB') {
-        // Apply active luxury styles to THB button
-        btnTHB.className = 'px-6 py-2.5 rounded-full text-xs font-extrabold transition duration-300 bg-gradient-to-r from-luxury-gold to-yellow-600 text-luxury-black shadow-lg';
-        btnUSDT.className = 'px-6 py-2.5 rounded-full text-xs font-extrabold transition duration-300 text-slate-400 hover:text-white';
+        // High luxury styling for active THB
+        btnTHB.className = 'px-6 py-3 rounded-full text-xs font-extrabold transition duration-300 bg-gradient-to-r from-gold to-gold-dark text-obsidian-deep shadow-lg';
+        btnUSDT.className = 'px-6 py-3 rounded-full text-xs font-extrabold transition duration-300 text-slate-400 hover:text-white';
         
         priceDisplays.forEach(element => {
           element.textContent = element.getAttribute('data-thb');
@@ -982,7 +1002,7 @@
           element.textContent = ' THB';
         });
         taxLabels.forEach((element, index) => {
-          if (index === 3) {
+          if (index === 4) { // Signature is Net/VAT Included
             element.textContent = 'VAT Included (net)';
           } else {
             element.textContent = '+ VAT';
@@ -990,9 +1010,9 @@
         });
 
       } else {
-        // Apply active luxury styles to USDT button
-        btnUSDT.className = 'px-6 py-2.5 rounded-full text-xs font-extrabold transition duration-300 bg-gradient-to-r from-luxury-gold to-yellow-600 text-luxury-black shadow-lg';
-        btnTHB.className = 'px-6 py-2.5 rounded-full text-xs font-extrabold transition duration-300 text-slate-400 hover:text-white';
+        // High luxury styling for active USDT
+        btnUSDT.className = 'px-6 py-3 rounded-full text-xs font-extrabold transition duration-300 bg-gradient-to-r from-gold to-gold-dark text-obsidian-deep shadow-lg';
+        btnTHB.className = 'px-6 py-3 rounded-full text-xs font-extrabold transition duration-300 text-slate-400 hover:text-white';
         
         priceDisplays.forEach(element => {
           element.textContent = element.getAttribute('data-usdt');
