@@ -822,7 +822,7 @@
             
             <img 
               id="sponsorImage"
-              src="https://raw.githubusercontent.com/givergroup/everest-team-web/refs/heads/main/367f0fae-f7df-4ec6-b59f-d02ee0cddc35.png" 
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" 
               alt="Sponsor Profile Image" 
               class="absolute inset-[6px] w-[116px] h-[116px] rounded-full object-cover shadow-2xl border border-white/10"
             >
@@ -932,19 +932,35 @@
 
     // 1. Dynamic Referral System (Query parser)
     const params = new URLSearchParams(window.location.search);
-    const ref = params.get("ref") || "coachpaul";
+    const rawRef = params.get("ref") || "coachpaul";
+    const ref = String(rawRef).trim().toLowerCase();
 
-    // Default image used only when a member has no image or the image path is broken
-    const defaultSponsorImage = "https://raw.githubusercontent.com/givergroup/everest-team-web/refs/heads/main/367f0fae-f7df-4ec6-b59f-d02ee0cddc35.png";
+    // GitHub raw image base. Used as backup when Cloudflare Pages has not refreshed the image cache yet.
+    const GITHUB_RAW_BASE = "https://raw.githubusercontent.com/givergroup/everest-team-web/refs/heads/main";
 
-    // Premium fallbacks
+    // Transparent image used while the real sponsor image is loading.
+    const transparentSponsorImage = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
+
+    // Final fallback only. This will be used when no image exists for the selected ref.
+    const defaultSponsorImage = GITHUB_RAW_BASE + "/en/images/coachpaul.png";
+
+    // Premium fallbacks. These are used only if data/members.json cannot be reached.
     const fallbackMembers = {
       "coachpaul": {
+        "name_th": "โค้ชพล",
         "name_en": "Coach Paul",
-        "phone": "+66 89 777 9999",
-        "line_url": "https://line.me/R/ti/p/@everest",
-        "register_link": "#",
-        "image_url": "./images/coachpaul.jpg"
+        "phone": "+66952539634",
+        "line_url": "https://lin.ee/ScFhI5r",
+        "register_link": "https://everest-media.co/register?ref=E000694",
+        "image_url": "/en/images/coachpaul.png"
+      },
+      "coachpetch": {
+        "name_th": "คุณเพ็ชร",
+        "name_en": "Coachpetch",
+        "phone": "Contact me via line",
+        "line_url": "https://line.me/ti/p/6adHlDYIDR",
+        "register_link": "https://everest-media.co/register?ref=E000771",
+        "image_url": "/en/images/coachpetch.jpg"
       },
       "admin": {
         "name_en": "Everest Administrator",
@@ -955,79 +971,133 @@
       }
     };
 
+    function uniqueArray(items) {
+      return [...new Set(items.filter(Boolean))];
+    }
+
     function resolveAssetURL(path) {
       if (!path || typeof path !== "string") {
-        return defaultSponsorImage;
+        return "";
       }
 
       let imagePath = path.trim();
-
       if (!imagePath) {
-        return defaultSponsorImage;
+        return "";
       }
 
-      // Allow full URL images, protocol-relative URLs, data URLs, and blob URLs
+      // Allow full URL images, protocol-relative URLs, data URLs, and blob URLs.
       if (/^(https?:)?\/\//i.test(imagePath) || imagePath.startsWith("data:") || imagePath.startsWith("blob:")) {
         return imagePath;
       }
 
-      // If only a filename is provided, assume it is inside /en/images/
+      // If only a filename is provided, assume it is inside /en/images/.
       if (!imagePath.includes("/") && !imagePath.includes("\\")) {
-        imagePath = "./images/" + imagePath;
+        imagePath = "/en/images/" + imagePath;
       }
 
-      // If JSON stores "en/images/name.jpg", make it root-relative for Pages deployment
+      // If JSON stores en/images/name.jpg, make it root-relative for Pages deployment.
       if (imagePath.startsWith("en/")) {
         return "/" + imagePath;
       }
 
-      // Root-relative paths such as /en/images/name.jpg
+      // Root-relative paths such as /en/images/name.jpg.
       if (imagePath.startsWith("/")) {
         return imagePath;
       }
 
-      // Relative paths such as ./images/name.jpg or images/name.jpg
+      // Relative paths such as ./images/name.jpg or images/name.jpg.
       return resolveURL(imagePath);
     }
 
-    function getSponsorImage(member) {
-      return resolveAssetURL(
-        member.image_url ||
-        member.profile_image ||
-        member.profileImage ||
-        member.photo_url ||
-        member.photo ||
-        member.avatar ||
-        ("./images/" + ref + ".jpg")
-      );
+    function withCacheBust(url) {
+      if (!url || url.startsWith("data:") || url.startsWith("blob:")) {
+        return url;
+      }
+      return url + (url.includes("?") ? "&" : "?") + "v=" + Date.now();
+    }
+
+    function buildSponsorImageCandidates(member) {
+      const safeRef = ref.replace(/[^a-z0-9_-]/gi, "");
+
+      // 1) Explicit image path in members.json, if available.
+      const explicitImages = [
+        member.image_url,
+        member.profile_image,
+        member.profileImage,
+        member.photo_url,
+        member.photo,
+        member.avatar
+      ].map(resolveAssetURL);
+
+      // 2) Automatic image paths based on ?ref=xxxxx.
+      // This makes /en/?ref=coachpetch automatically look for coachpetch.jpg, coachpetch.png, etc.
+      const autoImages = [
+        `/en/images/${safeRef}.jpg`,
+        `/en/images/${safeRef}.jpeg`,
+        `/en/images/${safeRef}.png`,
+        `/en/images/${safeRef}.webp`,
+        `./images/${safeRef}.jpg`,
+        `./images/${safeRef}.jpeg`,
+        `./images/${safeRef}.png`,
+        `./images/${safeRef}.webp`,
+        `${GITHUB_RAW_BASE}/en/images/${safeRef}.jpg`,
+        `${GITHUB_RAW_BASE}/en/images/${safeRef}.jpeg`,
+        `${GITHUB_RAW_BASE}/en/images/${safeRef}.png`,
+        `${GITHUB_RAW_BASE}/en/images/${safeRef}.webp`
+      ].map(resolveAssetURL);
+
+      return uniqueArray([...explicitImages, ...autoImages, defaultSponsorImage]);
+    }
+
+    function setSponsorImage(member) {
+      const sponsorImage = document.getElementById("sponsorImage");
+      if (!sponsorImage) {
+        return;
+      }
+
+      const candidates = buildSponsorImageCandidates(member);
+      let index = 0;
+      sponsorImage.src = transparentSponsorImage;
+
+      function tryNextImage() {
+        if (index >= candidates.length) {
+          sponsorImage.src = defaultSponsorImage;
+          return;
+        }
+
+        const imageUrl = withCacheBust(candidates[index]);
+        index += 1;
+
+        const probe = new Image();
+        probe.onload = function () {
+          sponsorImage.src = imageUrl;
+        };
+        probe.onerror = tryNextImage;
+        probe.src = imageUrl;
+      }
+
+      tryNextImage();
     }
 
     function applyMemberData(member) {
-      document.getElementById("sponsorName").textContent = member.name_en || member.name || "N/A";
-      document.getElementById("sponsorPhone").textContent = member.phone || "N/A";
+      document.getElementById("sponsorName").textContent = member.name_en || member.name || member.name_th || "N/A";
+      document.getElementById("sponsorPhone").textContent = member.phone || member.WhatsApp || member.whatsapp || member.tel || "N/A";
       document.getElementById("lineBtn").href = member.line_url || "#";
       document.getElementById("registerBtn").href = member.register_link || "#";
 
-      // Dynamic sponsor profile image
-      const sponsorImage = document.getElementById("sponsorImage");
-      if (sponsorImage) {
-        sponsorImage.onerror = function () {
-          this.onerror = null;
-          this.src = defaultSponsorImage;
-        };
-        sponsorImage.src = getSponsorImage(member);
-      }
+      // Dynamic sponsor profile image.
+      setSponsorImage(member);
 
-      // Update link targets
+      // Update link targets.
       const thaiPath = resolveURL("../th/?ref=" + ref);
       document.getElementById("thaiBtn").href = thaiPath;
       document.getElementById("thaiBtnHeader").href = thaiPath;
     }
 
-    // Resolve JSON path and fetch
+    // Resolve JSON path and fetch.
     const membersDataUrl = resolveURL("../data/members.json");
 
-    fetch(membersDataUrl)
+    fetch(withCacheBust(membersDataUrl), { cache: "no-store" })
       .then(response => {
         if (!response.ok) {
           throw new Error("HTTP error " + response.status);
@@ -1035,7 +1105,7 @@
         return response.json();
       })
       .then(data => {
-        const member = data[ref] || data["coachpaul"] || fallbackMembers["coachpaul"];
+        const member = data[ref] || data["coachpaul"] || fallbackMembers[ref] || fallbackMembers["coachpaul"];
         applyMemberData(member);
       })
       .catch(error => {
