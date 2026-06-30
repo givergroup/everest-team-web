@@ -612,7 +612,12 @@
             <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-luxury-gold via-amber-300 to-luxury-emerald p-1 animate-spin-slow">
               <div class="w-full h-full bg-luxury-dark rounded-full"></div>
             </div>
-            <img src="https://raw.githubusercontent.com/givergroup/everest-team-web/refs/heads/main/367f0fae-f7df-4ec6-b59f-d02ee0cddc35.png" alt="Sponsor Profile Image" class="absolute inset-[6px] w-[116px] h-[116px] rounded-full object-cover shadow-lg border border-white/10">
+            <img
+              id="sponsorImage"
+              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 116 116'%3E%3Crect width='116' height='116' rx='58' fill='%23030712'/%3E%3C/svg%3E"
+              alt="Sponsor Profile Image"
+              class="absolute inset-[6px] w-[116px] h-[116px] rounded-full object-cover shadow-lg border border-white/10"
+            >
           </div>
 
           <h3 class="text-3xl font-extrabold mb-1 bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">สปอนเซอร์ของคุณ</h3>
@@ -712,32 +717,136 @@
 
     // 1. Dynamic Member Fetch System based on URL query parameter `ref`
     const params = new URLSearchParams(window.location.search);
-    const ref = params.get("ref") || "coachpaul";
+    const ref = (params.get("ref") || "coachpaul").trim();
 
-    // Hardcoded elegant fallbacks for preview/sandboxed environments where JSON is missing
+    // Default image used only when a member has no image or the image path is broken
+    const defaultSponsorImage =
+      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 116 116'%3E%3Crect width='116' height='116' rx='58' fill='%23030712'/%3E%3Ctext x='58' y='64' text-anchor='middle' font-size='34' fill='%23d97706'%3EPE%3C/text%3E%3C/svg%3E";
+
+    // Fallback data. This lets the page still work if members.json cannot be loaded.
     const fallbackMembers = {
       "coachpaul": {
-        "name": "โค้ชพอล (Coach Paul)",
-        "phone": "+66 89 777 9999",
-        "line_url": "https://line.me/R/ti/p/@everest",
-        "register_link": "#"
+        "name_th": "โค้ชพล",
+        "name_en": "Coach Paul",
+        "WhatsApp": "+66952539634",
+        "line_url": "https://lin.ee/ScFhI5r",
+        "register_link": "https://everest-media.co/register?ref=E000694",
+        "image_url": "/en/images/coachpaul.png"
+      },
+      "coachpetch": {
+        "name_th": "คุณเพ็ชร",
+        "name_en": "Coachpetch",
+        "phone": "Contact me via line",
+        "line_url": "https://line.me/ti/p/6adHlDYIDR",
+        "register_link": "https://everest-media.co/register?ref=E000771",
+        "image_url": "/en/images/coachpetch.jpg"
       },
       "admin": {
-        "name": "ผู้ดูแลระบบ Everest (Admin)",
+        "name_th": "ผู้ดูแลระบบ Everest",
+        "name_en": "Everest Administrator",
         "phone": "ติดต่อผ่านไลน์ทีมงาน",
         "line_url": "https://line.me",
-        "register_link": "#"
+        "register_link": "#",
+        "image_url": defaultSponsorImage
       }
     };
 
+    function safeText(value, fallback = "ไม่มีข้อมูล") {
+      return value && String(value).trim() ? String(value).trim() : fallback;
+    }
+
+    function resolveAssetURL(path) {
+      if (!path || typeof path !== "string") {
+        return defaultSponsorImage;
+      }
+
+      let imagePath = path.trim();
+
+      if (!imagePath) {
+        return defaultSponsorImage;
+      }
+
+      // Allow full URL images, protocol-relative URLs, data URLs, and blob URLs
+      if (/^(https?:)?\/\//i.test(imagePath) || imagePath.startsWith("data:") || imagePath.startsWith("blob:")) {
+        return imagePath;
+      }
+
+      // If only a filename is provided, assume it is inside /en/images/
+      if (!imagePath.includes("/") && !imagePath.includes("\\")) {
+        imagePath = "/en/images/" + imagePath;
+      }
+
+      // If JSON stores "en/images/name.jpg", make it root-relative for Pages deployment
+      if (imagePath.startsWith("en/")) {
+        return "/" + imagePath;
+      }
+
+      // Root-relative paths such as /en/images/name.jpg
+      if (imagePath.startsWith("/")) {
+        return imagePath;
+      }
+
+      // Relative paths such as ./images/name.jpg or images/name.jpg
+      return resolveURL(imagePath);
+    }
+
+    function withCacheBust(url) {
+      if (!url || url.startsWith("data:") || url.startsWith("blob:")) {
+        return url;
+      }
+
+      const cacheToken = params.get("v") || "20260630";
+      const separator = url.includes("?") ? "&" : "?";
+      return url + separator + "v=" + encodeURIComponent(cacheToken);
+    }
+
+    function getSponsorImage(member) {
+      return withCacheBust(
+        resolveAssetURL(
+          member.image_url ||
+          member.profile_image ||
+          member.profileImage ||
+          member.photo_url ||
+          member.photo ||
+          member.avatar ||
+          ("/en/images/" + ref + ".jpg")
+        )
+      );
+    }
+
+    function getContactText(member) {
+      return safeText(
+        member.phone ||
+        member.WhatsApp ||
+        member.whatsapp ||
+        member.mobile ||
+        member.tel,
+        "ติดต่อผ่าน LINE"
+      );
+    }
+
     function applyMemberData(member) {
-      document.getElementById("sponsorName").textContent = member.name || member.name_en || "ไม่มีข้อมูล";
-      document.getElementById("sponsorPhone").textContent = member.phone || "ไม่มีข้อมูล";
+      document.getElementById("sponsorName").textContent = safeText(
+        member.name_th || member.name || member.name_en,
+        "ไม่มีข้อมูล"
+      );
+
+      document.getElementById("sponsorPhone").textContent = getContactText(member);
       document.getElementById("lineBtn").href = member.line_url || "#";
       document.getElementById("registerBtn").href = member.register_link || "#";
-      
-      // Resolve dynamic redirection path to English version (directly matches everest-team-web.pages.dev/en/ hierarchy)
-      const englishPath = "https://everest-team-web.pages.dev/en/?ref=" + ref;
+
+      // Dynamic sponsor profile image from members.json
+      const sponsorImage = document.getElementById("sponsorImage");
+      if (sponsorImage) {
+        sponsorImage.onerror = function () {
+          this.onerror = null;
+          this.src = defaultSponsorImage;
+        };
+        sponsorImage.src = getSponsorImage(member);
+      }
+
+      // Resolve dynamic redirection path to English version
+      const englishPath = resolveURL("../en/?ref=" + encodeURIComponent(ref));
       document.getElementById("englishBtn").href = englishPath;
       document.getElementById("englishBtnHeader").href = englishPath;
     }
@@ -753,7 +862,7 @@
         return response.json();
       })
       .then(data => {
-        const member = data[ref] || data["coachpaul"] || fallbackMembers["coachpaul"];
+        const member = data[ref] || data["coachpaul"] || fallbackMembers[ref] || fallbackMembers["coachpaul"];
         applyMemberData(member);
       })
       .catch(error => {
