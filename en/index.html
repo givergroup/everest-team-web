@@ -821,6 +821,7 @@
             <div class="absolute inset-[3px] bg-gradient-to-tr from-gold/20 to-emerald/20 rounded-full filter blur-[4px]"></div>
             
             <img 
+              id="sponsorImage"
               src="https://raw.githubusercontent.com/givergroup/everest-team-web/refs/heads/main/367f0fae-f7df-4ec6-b59f-d02ee0cddc35.png" 
               alt="Sponsor Profile Image" 
               class="absolute inset-[6px] w-[116px] h-[116px] rounded-full object-cover shadow-2xl border border-white/10"
@@ -933,28 +934,90 @@
     const params = new URLSearchParams(window.location.search);
     const ref = params.get("ref") || "coachpaul";
 
+    // Default image used only when a member has no image or the image path is broken
+    const defaultSponsorImage = "https://raw.githubusercontent.com/givergroup/everest-team-web/refs/heads/main/367f0fae-f7df-4ec6-b59f-d02ee0cddc35.png";
+
     // Premium fallbacks
     const fallbackMembers = {
       "coachpaul": {
         "name_en": "Coach Paul",
         "phone": "+66 89 777 9999",
         "line_url": "https://line.me/R/ti/p/@everest",
-        "register_link": "#"
+        "register_link": "#",
+        "image_url": "./images/coachpaul.jpg"
       },
       "admin": {
         "name_en": "Everest Administrator",
         "phone": "Contact via LINE Support",
         "line_url": "https://line.me",
-        "register_link": "#"
+        "register_link": "#",
+        "image_url": defaultSponsorImage
       }
     };
+
+    function resolveAssetURL(path) {
+      if (!path || typeof path !== "string") {
+        return defaultSponsorImage;
+      }
+
+      let imagePath = path.trim();
+
+      if (!imagePath) {
+        return defaultSponsorImage;
+      }
+
+      // Allow full URL images, protocol-relative URLs, data URLs, and blob URLs
+      if (/^(https?:)?\/\//i.test(imagePath) || imagePath.startsWith("data:") || imagePath.startsWith("blob:")) {
+        return imagePath;
+      }
+
+      // If only a filename is provided, assume it is inside /en/images/
+      if (!imagePath.includes("/") && !imagePath.includes("\\")) {
+        imagePath = "./images/" + imagePath;
+      }
+
+      // If JSON stores "en/images/name.jpg", make it root-relative for Pages deployment
+      if (imagePath.startsWith("en/")) {
+        return "/" + imagePath;
+      }
+
+      // Root-relative paths such as /en/images/name.jpg
+      if (imagePath.startsWith("/")) {
+        return imagePath;
+      }
+
+      // Relative paths such as ./images/name.jpg or images/name.jpg
+      return resolveURL(imagePath);
+    }
+
+    function getSponsorImage(member) {
+      return resolveAssetURL(
+        member.image_url ||
+        member.profile_image ||
+        member.profileImage ||
+        member.photo_url ||
+        member.photo ||
+        member.avatar ||
+        ("./images/" + ref + ".jpg")
+      );
+    }
 
     function applyMemberData(member) {
       document.getElementById("sponsorName").textContent = member.name_en || member.name || "N/A";
       document.getElementById("sponsorPhone").textContent = member.phone || "N/A";
       document.getElementById("lineBtn").href = member.line_url || "#";
       document.getElementById("registerBtn").href = member.register_link || "#";
-      
+
+      // Dynamic sponsor profile image
+      const sponsorImage = document.getElementById("sponsorImage");
+      if (sponsorImage) {
+        sponsorImage.onerror = function () {
+          this.onerror = null;
+          this.src = defaultSponsorImage;
+        };
+        sponsorImage.src = getSponsorImage(member);
+      }
+
       // Update link targets
       const thaiPath = resolveURL("../th/?ref=" + ref);
       document.getElementById("thaiBtn").href = thaiPath;
