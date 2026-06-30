@@ -5,13 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Project Everest | Digital Product & Global Opportunity</title>
   
-  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google Fonts (Inter & Playfair Display for Premium Luxury Look) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,500&display=swap" rel="stylesheet">
-  <!-- Lucide Icons for premium visual cues -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <script>
@@ -63,7 +60,6 @@
 </head>
 <body class="bg-luxury-dark text-slate-100 font-sans antialiased overflow-x-hidden premium-gradient">
 
-  <!-- TOP NAVIGATION HEADER -->
   <header class="sticky top-0 z-50 glass-effect border-b border-white/5">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       <div class="flex items-center gap-3">
@@ -83,10 +79,19 @@
     </div>
   </header>
 
-  <!-- HERO SECTION -->
   <section class="relative pt-16 pb-16 overflow-hidden">
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.08)_0,transparent_100%)] pointer-events-none"></div>
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      
+      <div class="relative mb-12 group">
+        <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-luxury-gold to-luxury-emerald opacity-20 blur-xl group-hover:opacity-30 transition duration-500"></div>
+        <img 
+          src="https://raw.githubusercontent.com/givergroup/everest-team-web/refs/heads/main/en/everest-eng.png" 
+          alt="Everest Digital Product & Global Opportunity Banner" 
+          class="relative rounded-2xl border border-white/10 shadow-2xl max-w-full h-auto mx-auto"
+        >
+      </div>
+
       <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-xs font-semibold text-luxury-gold uppercase tracking-widest mb-6">
         <i data-lucide="sparkles" class="w-4 h-4 text-luxury-gold animate-pulse"></i>
         The Summit of Digital Success
@@ -112,7 +117,6 @@
     </div>
   </section>
 
-  <!-- YOUTUBE VIDEO SECTION (HIGH-IMPACT EYE-CATCHING SHOWCASE) -->
   <section class="pb-24 relative z-10">
     <div class="max-w-4xl mx-auto px-4">
       <div class="text-center mb-8">
@@ -126,12 +130,9 @@
         <p class="text-slate-400 text-xs sm:text-sm mt-2">Discover the mechanics of the Everest platform, mastercourses, and compensation plans in this presentation.</p>
       </div>
 
-      <!-- Video Container Frame -->
       <div class="relative group">
-        <!-- Golden-emerald premium glow background behind video frame -->
         <div class="absolute -inset-3.5 rounded-3xl bg-gradient-to-r from-luxury-gold via-yellow-400 to-luxury-emerald opacity-30 blur-2xl group-hover:opacity-40 transition duration-500"></div>
         
-        <!-- Video Wrapper with premium border -->
         <div class="relative glass-effect p-2 sm:p-3 rounded-2xl sm:rounded-3xl border border-white/15 overflow-hidden shadow-2xl">
           <div class="aspect-video w-full rounded-xl sm:rounded-2xl overflow-hidden">
             <iframe 
@@ -148,7 +149,6 @@
     </div>
   </section>
 
-  <!-- WHAT IS EVEREST SECTION -->
   <section class="py-20 bg-luxury-card/30 border-y border-white/5">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -182,23 +182,20 @@
           </div>
         </div>
 
-        <div class="relative">
-          <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-luxury-gold to-luxury-emerald opacity-25 blur-lg"></div>
-          <div class="relative glass-effect p-8 rounded-2xl border border-white/10">
-            <h3 class="text-2xl font-bold mb-4 bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">Our Core Philosophy</h3>
-            <blockquote class="text-xl font-serif italic text-luxury-goldLight/90 mb-6">
-              "Learn, implement with precision, and scale up your commercial horizons without borders."
-            </blockquote>
-            <p class="text-slate-400 text-sm leading-relaxed">
-              We bridge the gap between advanced technology and aspiring minds. By offering decentralized access, anyone with an internet connection can utilize our platform to transform their digital presence and capital potential.
-            </p>
+        <div class="relative group">
+          <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-luxury-gold to-luxury-emerald opacity-25 blur-lg group-hover:opacity-35 transition duration-500"></div>
+          <div class="relative glass-effect p-2 rounded-2xl border border-white/10 overflow-hidden shadow-2xl">
+            <img 
+              src="https://raw.githubusercontent.com/givergroup/everest-team-web/refs/heads/main/en/projecteverest-eng.png" 
+              alt="Project Everest Ecosystem Diagram" 
+              class="relative rounded-xl max-w-full h-auto mx-auto"
+            >
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- THE 6 MEGA-PORTFOLIOS -->
   <section id="programs" class="py-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto mb-16">
@@ -208,7 +205,6 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         
-        <!-- Pillar 1 -->
         <div class="glass-effect p-8 rounded-2xl border border-white/5 hover:border-luxury-gold/30 transition duration-300 group flex flex-col justify-between">
           <div>
             <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center mb-6 group-hover:bg-luxury-gold/10 transition">
@@ -229,7 +225,6 @@
           </div>
         </div>
 
-        <!-- Pillar 2 -->
         <div class="glass-effect p-8 rounded-2xl border border-white/5 hover:border-luxury-emerald/30 transition duration-300 group flex flex-col justify-between">
           <div>
             <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center mb-6 group-hover:bg-luxury-emerald/10 transition">
@@ -250,7 +245,6 @@
           </div>
         </div>
 
-        <!-- Pillar 3 -->
         <div class="glass-effect p-8 rounded-2xl border border-white/5 hover:border-blue-500/30 transition duration-300 group flex flex-col justify-between">
           <div>
             <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center mb-6 group-hover:bg-blue-500/10 transition">
@@ -271,7 +265,6 @@
           </div>
         </div>
 
-        <!-- Pillar 4 -->
         <div class="glass-effect p-8 rounded-2xl border border-white/5 hover:border-orange-500/30 transition duration-300 group flex flex-col justify-between">
           <div>
             <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center mb-6 group-hover:bg-orange-500/10 transition">
@@ -292,7 +285,6 @@
           </div>
         </div>
 
-        <!-- Pillar 5 -->
         <div class="glass-effect p-8 rounded-2xl border border-white/5 hover:border-purple-500/30 transition duration-300 group flex flex-col justify-between">
           <div>
             <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center mb-6 group-hover:bg-purple-500/10 transition">
@@ -313,7 +305,6 @@
           </div>
         </div>
 
-        <!-- Pillar 6 -->
         <div class="glass-effect p-8 rounded-2xl border border-white/5 hover:border-pink-500/30 transition duration-300 group flex flex-col justify-between">
           <div>
             <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center mb-6 group-hover:bg-pink-500/10 transition">
@@ -338,7 +329,6 @@
     </div>
   </section>
 
-  <!-- BUSINESS MODEL FLOW -->
   <section class="py-20 bg-luxury-card/50 border-t border-white/5">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto mb-16">
@@ -396,7 +386,6 @@
     </div>
   </section>
 
-  <!-- PACKAGES SECTION (WITH THB / USDT SWITCH) -->
   <section class="py-24 relative overflow-hidden">
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom,rgba(217,119,6,0.05)_0,transparent_100%)] pointer-events-none"></div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -405,7 +394,6 @@
         <h2 class="text-3xl sm:text-5xl font-bold mb-4 font-serif">Ecosystem Membership Packages</h2>
         <p class="text-slate-400 mb-8">Access our premium content and business model. Toggle below to view rates.</p>
         
-        <!-- THB / USDT TOGGLE -->
         <div class="inline-flex items-center p-1.5 rounded-full bg-white/5 border border-white/10 gap-2">
           <button id="toggleTHB" onclick="switchCurrency('THB')" class="px-5 py-2.5 rounded-full text-xs font-bold transition duration-300 bg-luxury-gold text-luxury-dark shadow-md">
             Thai Baht (THB)
@@ -416,10 +404,8 @@
         </div>
       </div>
 
-      <!-- CARDS -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
         
-        <!-- Package 1 -->
         <div class="glass-effect rounded-2xl border border-white/5 overflow-hidden flex flex-col justify-between hover:scale-[1.02] transition duration-300">
           <div class="p-6 border-b border-white/5">
             <div class="flex items-center justify-between mb-4">
@@ -442,7 +428,6 @@
           </div>
         </div>
 
-        <!-- Package 2 -->
         <div class="glass-effect rounded-2xl border border-white/5 overflow-hidden flex flex-col justify-between hover:scale-[1.02] transition duration-300">
           <div class="p-6 border-b border-white/5">
             <div class="flex items-center justify-between mb-4">
@@ -465,7 +450,6 @@
           </div>
         </div>
 
-        <!-- Package 3 -->
         <div class="glass-effect rounded-2xl border border-white/5 overflow-hidden flex flex-col justify-between hover:scale-[1.02] transition duration-300">
           <div class="p-6 border-b border-white/5">
             <div class="flex items-center justify-between mb-4">
@@ -488,7 +472,6 @@
           </div>
         </div>
 
-        <!-- Package 4 -->
         <div class="glass-effect rounded-2xl border-2 border-luxury-gold overflow-hidden flex flex-col justify-between hover:scale-[1.02] transition duration-300 relative">
           <div class="absolute top-0 right-0 bg-luxury-gold text-luxury-dark text-[9px] font-extrabold uppercase py-1 px-3 rounded-bl-lg tracking-wider">
             Elite Rank
@@ -516,7 +499,6 @@
 
       </div>
 
-      <!-- USDT RATE EXPLANATION NOTICE -->
       <div class="glass-effect p-6 rounded-2xl border border-amber-500/20 max-w-3xl mx-auto flex gap-4 items-start">
         <div class="w-10 h-10 rounded-full bg-amber-500/10 flex items-center justify-center flex-shrink-0">
           <i data-lucide="alert-circle" class="w-5 h-5 text-amber-400"></i>
@@ -532,7 +514,6 @@
     </div>
   </section>
 
-  <!-- MEMBER REWARD PATHWAYS -->
   <section class="py-24 bg-luxury-card/30 border-y border-white/5">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
@@ -543,7 +524,6 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         
-        <!-- Bonus 1 -->
         <div class="p-6 rounded-2xl bg-white/5 border border-white/5 hover:bg-white/10 transition">
           <div class="flex items-center gap-3 mb-4">
             <div class="w-10 h-10 rounded-lg bg-yellow-500/10 flex items-center justify-center text-yellow-400">
@@ -556,7 +536,6 @@
           </p>
         </div>
 
-        <!-- Bonus 2 -->
         <div class="p-6 rounded-2xl bg-white/5 border border-white/5 hover:bg-white/10 transition">
           <div class="flex items-center gap-3 mb-4">
             <div class="w-10 h-10 rounded-lg bg-teal-500/10 flex items-center justify-center text-teal-400">
@@ -569,7 +548,6 @@
           </p>
         </div>
 
-        <!-- Bonus 3 -->
         <div class="p-6 rounded-2xl bg-white/5 border border-white/5 hover:bg-white/10 transition">
           <div class="flex items-center gap-3 mb-4">
             <div class="w-10 h-10 rounded-lg bg-pink-500/10 flex items-center justify-center text-pink-400">
@@ -582,7 +560,6 @@
           </p>
         </div>
 
-        <!-- Bonus 4 -->
         <div class="p-6 rounded-2xl bg-white/5 border border-white/5 hover:bg-white/10 transition">
           <div class="flex items-center gap-3 mb-4">
             <div class="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-400">
@@ -595,7 +572,6 @@
           </p>
         </div>
 
-        <!-- Bonus 5 -->
         <div class="p-6 rounded-2xl bg-white/5 border border-white/5 hover:bg-white/10 transition">
           <div class="flex items-center gap-3 mb-4">
             <div class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400">
@@ -608,7 +584,6 @@
           </p>
         </div>
 
-        <!-- Bonus 6 -->
         <div class="p-6 rounded-2xl bg-white/5 border border-white/5 hover:bg-white/10 transition">
           <div class="flex items-center gap-3 mb-4">
             <div class="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400">
@@ -625,11 +600,9 @@
     </div>
   </section>
 
-  <!-- THE SPONSOR SECTION (DYNAMIC + DECORATED PROFILE CARD) -->
   <section id="sponsor-box" class="py-24 relative">
     <div class="max-w-xl mx-auto px-4 relative z-10">
       
-      <!-- Luxury Card Frame -->
       <div class="relative">
         <div class="absolute -inset-1.5 rounded-3xl bg-gradient-to-r from-luxury-gold via-yellow-400 to-luxury-emerald opacity-30 blur-xl"></div>
         
@@ -638,7 +611,6 @@
             <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span> Registered Partner Info
           </div>
 
-          <!-- Dynamic Avatar with luxury ring -->
           <div class="relative w-32 h-32 mx-auto mb-6">
             <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-luxury-gold via-amber-300 to-luxury-emerald p-1 animate-spin-slow">
               <div class="w-full h-full bg-luxury-dark rounded-full"></div>
@@ -659,7 +631,6 @@
             </div>
           </div>
 
-          <!-- Actions -->
           <div class="space-y-3">
             <a id="lineBtn" href="#" class="w-full py-4 rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-700 text-white font-bold transition duration-300 hover:scale-[1.01] flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/10">
               <i data-lucide="message-circle" class="w-5 h-5"></i> Contact Sponsor on LINE
@@ -682,7 +653,6 @@
     </div>
   </section>
 
-  <!-- IMPORTANT NOTICE -->
   <section class="py-12 bg-luxury-dark/80 text-center border-t border-white/5">
     <div class="max-w-4xl mx-auto px-4">
       <h5 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 flex items-center justify-center gap-2">
@@ -694,7 +664,6 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer class="py-8 bg-[#02040a] text-center border-t border-white/5 text-xs text-slate-500">
     <div class="max-w-7xl mx-auto px-4">
       <p class="mb-2">© 2026 Project Everest. Elite Sales Team Digital Portal. All rights reserved.</p>
@@ -702,7 +671,6 @@
     </div>
   </footer>
 
-  <!-- SCRIPTING (Dynamic Member Logic & UI Interactive System) -->
   <script>
     // Initialize Lucide Icons
     lucide.createIcons();
